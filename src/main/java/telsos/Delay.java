@@ -30,7 +30,7 @@ public final class Delay<T> implements Deref<T> {
     return lock == null;
   }
 
-  @SuppressWarnings("squid:S3077")
+  @SuppressWarnings("java:S3077")
   private volatile Lock lock;
 
   private Supplier<T> supplier;
