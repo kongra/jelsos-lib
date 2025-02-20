@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" child.project.url.inherit.append.path="true" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>kongra</groupId>
   <artifactId>telsos-java</artifactId>
   <version>1.0</version>
-
   <properties>
-    <telsos.version>1.0</telsos.version>
-
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>23</maven.compiler.source>
-    <maven.compiler.target>23</maven.compiler.target>
-
-    <assertj.version>3.26.3</assertj.version>
-    <commons-validator.version>1.9.0</commons-validator.version>
-    <eclipse-collections.version>12.0.0.M3</eclipse-collections.version>
     <jmh.version>1.37</jmh.version>
-    <junit-jupiter.version>5.11.0</junit-jupiter.version>
-
-    <maven-clean-plugin.version>3.3.2</maven-clean-plugin.version>
-    <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
-    <maven-deploy-plugin.version>3.1.2</maven-deploy-plugin.version>
-    <maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
     <maven-install-plugin.version>3.1.2</maven-install-plugin.version>
     <maven-jar-plugin.version>3.4.1</maven-jar-plugin.version>
+    <maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
     <maven-project-info-reports-plugin.version>3.5.0</maven-project-info-reports-plugin.version>
-    <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
-    <maven-site-plugin.version>4.0.0-M14</maven-site-plugin.version>
+    <maven.compiler.source>23</maven.compiler.source>
+    <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+    <maven-clean-plugin.version>3.3.2</maven-clean-plugin.version>
+    <maven.compiler.target>23</maven.compiler.target>
+    <junit-jupiter.version>5.11.0</junit-jupiter.version>
     <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+    <assertj.version>3.26.3</assertj.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <commons-validator.version>1.9.0</commons-validator.version>
+    <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+    <eclipse-collections.version>12.0.0.M3</eclipse-collections.version>
+    <maven-deploy-plugin.version>3.1.2</maven-deploy-plugin.version>
+    <maven-site-plugin.version>4.0.0-M14</maven-site-plugin.version>
   </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -102,7 +94,6 @@
           <version>${maven-compiler-plugin.version}</version>
           <configuration>
             <compilerArgs>
-              <arg>-parameters</arg>
               <arg>--enable-preview</arg>
             </compilerArgs>
           </configuration>
@@ -126,8 +117,7 @@
           <version>${maven-jar-plugin.version}</version>
           <configuration>
             <archive>
-              <manifestFile>
-              src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+              <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
             </archive>
           </configuration>
         </plugin>
