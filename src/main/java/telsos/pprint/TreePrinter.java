@@ -1,4 +1,3 @@
-// © 2022 Konrad Grzanek <kongra@gmail.com>
 package telsos.pprint;
 
 import java.util.LinkedList;
@@ -6,7 +5,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 import telsos.ImpossibleException;
-import telsos.math.newtypes.NatInt;
+import telsos.math.newtype.NatInt;
 
 public final class TreePrinter<T> {
 

@@ -1,4 +1,3 @@
-// © 2024 Konrad Grzanek <kongra@gmail.com>
 package telsos;
 
 import java.util.Objects;
@@ -6,7 +5,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Supplier;
 
-import telsos.functions.Deref;
+import telsos.function.Deref;
 
 public final class Delay<T> implements Deref<T> {
 

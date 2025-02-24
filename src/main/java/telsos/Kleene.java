@@ -1,4 +1,3 @@
-// © 2024 Konrad Grzanek <kongra@gmail.com>
 package telsos;
 
 import java.util.Optional;

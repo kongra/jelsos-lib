@@ -1,4 +1,3 @@
-// © 2022 Konrad Grzanek <kongra@gmail.com>
 package telsos.paip;
 
 import static java.util.Map.entry;

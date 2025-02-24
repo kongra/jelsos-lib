@@ -1,4 +1,3 @@
-// © 2023 Konrad Grzanek <kongra@gmail.com>
 package telsos;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,9 +36,7 @@ class TestLambdas {
     System.out.println(f1.applyAsInt("xyz"));
 
     final var coll1 = List.of(1, 2, 3, 4, 5, 6);
-    doColl(coll1, e -> {
-      System.out.println(e);
-    });
+    doColl(coll1, System.out::println);
 
     assertThat(coll1).isNotEmpty();
 

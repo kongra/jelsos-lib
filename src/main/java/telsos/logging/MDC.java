@@ -1,4 +1,3 @@
-// © 2024 Konrad Grzanek <kongra@gmail.com>
 package telsos.logging;
 
 import java.util.Objects;
@@ -7,9 +6,9 @@ import java.util.function.Supplier;
 
 import telsos.Delay;
 import telsos.DynVar;
-import telsos.functions.EntryConsumer;
-import telsos.strings.NonBlank;
-import telsos.strings.Str;
+import telsos.function.EntryConsumer;
+import telsos.string.NonBlank;
+import telsos.string.Str;
 
 @FunctionalInterface
 public interface MDC {

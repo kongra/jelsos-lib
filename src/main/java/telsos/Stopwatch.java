@@ -1,4 +1,3 @@
-// © 2019 Konrad Grzanek <kongra@gmail.com>
 package telsos;
 
 public final class Stopwatch {

@@ -1,4 +1,3 @@
-// © 2019 Konrad Grzanek <kongra@gmail.com>
 package telsos.bench;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;

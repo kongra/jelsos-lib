@@ -1,5 +1,3 @@
-// © 2021 Konrad Grzanek <kongra@gmail.com>
-// Created 2021-09-04
 package telsos;
 
 public final class HumanReadable {

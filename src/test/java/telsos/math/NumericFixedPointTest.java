@@ -1,4 +1,3 @@
-// © 2024 Konrad Grzanek <kongra@gmail.com>
 package telsos.math;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -9,24 +8,24 @@ import java.math.RoundingMode;
 
 import org.junit.jupiter.api.Test;
 
-import telsos.typeclasses.Enum;
-import telsos.typeclasses.Num;
-import telsos.typeclasses.Ord;
-import telsos.typeclasses.instances.BigDecimalInstances;
+import telsos.typeclass.Enum;
+import telsos.typeclass.Num;
+import telsos.typeclass.Ord;
+import telsos.typeclass.instances.BigDecimalInstances;
 
 class NumericFixedPointTest {
 
   static class BigDecimalFixedPoint implements NumericFixedPoint<BigDecimal> {
 
-    final Num<BigDecimal> NUM;
+    final Num<BigDecimal> num;
 
     BigDecimalFixedPoint(MathContext mc) {
-      NUM = BigDecimalInstances.numWith(mc);
+      num = BigDecimalInstances.numWith(mc);
     }
 
     @Override
     public Num<BigDecimal> num() {
-      return NUM;
+      return num;
     }
 
     @Override

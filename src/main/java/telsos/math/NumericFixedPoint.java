@@ -1,16 +1,15 @@
-// © 2024 Konrad Grzanek <kongra@gmail.com>
 package telsos.math;
 
 import java.util.function.UnaryOperator;
 
-import telsos.typeclasses.Num;
-import telsos.typeclasses.Ord;
+import telsos.typeclass.Num;
+import telsos.typeclass.Ord;
 
 public interface NumericFixedPoint<T> {
 
   Num<T> num();
 
-  telsos.typeclasses.Enum<T> enm();
+  telsos.typeclass.Enum<T> enm();
 
   Ord<T> ord();
 
