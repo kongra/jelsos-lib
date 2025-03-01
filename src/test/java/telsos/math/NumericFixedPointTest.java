@@ -8,10 +8,12 @@ import java.math.RoundingMode;
 
 import org.junit.jupiter.api.Test;
 
-import telsos.typeclass.Enum;
-import telsos.typeclass.Num;
-import telsos.typeclass.Ord;
-import telsos.typeclass.instances.BigDecimalInstances;
+import jelsos.lib.math.HeronSqrt;
+import jelsos.lib.math.NumericFixedPoint;
+import jelsos.lib.typeclass.Enum;
+import jelsos.lib.typeclass.Num;
+import jelsos.lib.typeclass.Ord;
+import jelsos.lib.typeclass.instances.BigDecimalInstances;
 
 class NumericFixedPointTest {
 

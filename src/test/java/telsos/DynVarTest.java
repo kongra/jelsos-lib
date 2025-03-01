@@ -5,6 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import jelsos.lib.DynVar;
+
 class DynVarTest {
 
   static final ScopedValue<String> SCOPED_VALUE = ScopedValue
