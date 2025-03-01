@@ -8,6 +8,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import jelsos.lib.Delay;
+
 class DelayTest {
 
   static final String TEST_VALUE = "Hello, World!";

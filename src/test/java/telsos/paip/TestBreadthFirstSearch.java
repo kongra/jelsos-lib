@@ -11,6 +11,8 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
+import jelsos.lib.paip.BreadthFirstSearch;
+
 public class TestBreadthFirstSearch {
 
   public static Entry<String, Iterable<String>> en(String key,

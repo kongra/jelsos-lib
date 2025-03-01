@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
+import jelsos.lib.string.Str;
+
 @SuppressWarnings("static-method")
 class StrTest {
 

@@ -7,6 +7,8 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
+import jelsos.lib.paip.DepthFirstSearch;
+
 public class TestDepthFirstSearch {
 
   public static Optional<String> search(String start, String goal) {
