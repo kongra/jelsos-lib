@@ -4,6 +4,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Supplier;
 
+import org.eclipse.jdt.annotation.Nullable;
+
 import jelsos.lib.ex.Ex;
 import jelsos.lib.function.Deref;
 
@@ -15,13 +17,14 @@ public final class Delay<T> implements Deref<T> {
 
   @Override
   public T deref() {
-    if (lock != null)
+    if (lock != null) {
       realize();
+    }
 
     if (exception != null)
-      return Ex.rethrow(exception);
+      return Ex.rethrow(O.nn(exception));
 
-    return value;
+    return O.nn(value);
   }
 
   public boolean isRealized() {
@@ -29,13 +32,13 @@ public final class Delay<T> implements Deref<T> {
   }
 
   @SuppressWarnings("java:S3077")
-  private volatile Lock lock;
+  private volatile @Nullable Lock lock;
 
-  private Supplier<T> supplier;
+  private @Nullable Supplier<T> supplier;
 
-  private T value;
+  private @Nullable T value;
 
-  private Exception exception;
+  private @Nullable Exception exception;
 
   private Delay(Supplier<T> supplier) {
     lock = new ReentrantLock();

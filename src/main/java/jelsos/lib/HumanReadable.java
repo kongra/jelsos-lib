@@ -18,8 +18,9 @@ public final class HumanReadable {
       bytes = bytes / KB;
     }
 
-    return "%%.%df %%s".formatted(digits).formatted(bytes,
-        BYTES_MULTIPLIES_POSTFIXES[index]);
+    return O.nn("%%.%df %%s"
+        .formatted(digits)
+        .formatted(bytes, BYTES_MULTIPLIES_POSTFIXES[index]));
   }
 
   private static final String[] NANOSECS_MULTIPLIES_POSTFIXES = { "ns", "µs",
@@ -35,7 +36,8 @@ public final class HumanReadable {
       nanosecs = nanosecs / 1_000;
     }
 
-    return "%%.%df %%s".formatted(digits).formatted(nanosecs,
-        NANOSECS_MULTIPLIES_POSTFIXES[index]);
+    return O.nn("%%.%df %%s"
+        .formatted(digits)
+        .formatted(nanosecs, NANOSECS_MULTIPLIES_POSTFIXES[index]));
   }
 }

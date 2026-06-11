@@ -1,9 +1,11 @@
 package jelsos.lib.refs;
 
+import org.eclipse.jdt.annotation.Nullable;
+
 public final class Ref<T> {
 
   @SuppressWarnings("java:S1104")
-  public T value;
+  public @Nullable T value;
 
   public Ref() {}
 

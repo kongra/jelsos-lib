@@ -1,12 +1,12 @@
 package jelsos.lib.logging;
 
 import java.util.concurrent.Callable;
-import java.util.function.Supplier;
 
 import jelsos.lib.Delay;
 import jelsos.lib.DynVar;
 import jelsos.lib.O;
 import jelsos.lib.function.EntryConsumer;
+import jelsos.lib.function.NnSupplier;
 import jelsos.lib.string.NonBlank;
 import jelsos.lib.string.Str;
 
@@ -15,15 +15,11 @@ public interface MDC {
 
   DynVar<Delay<MDC>> delayed = DynVar.newInstance();
 
-  static void exec(Supplier<MDC> supplier, Runnable body) {
-    O.nn(supplier);
-    O.nn(body);
+  static void exec(NnSupplier<MDC> supplier, Runnable body) {
     delayed.exec(Delay.of(supplier), body);
   }
 
-  static <E> E eval(Supplier<MDC> supplier, Callable<E> body) {
-    O.nn(supplier);
-    O.nn(body);
+  static <E> E eval(NnSupplier<MDC> supplier, Callable<E> body) {
     return delayed.eval(Delay.of(supplier), body);
   }
 
@@ -40,7 +36,7 @@ public interface MDC {
       }
     });
 
-    return buf.append('}').toString();
+    return O.nn(buf.append('}').toString());
   }
 
 }

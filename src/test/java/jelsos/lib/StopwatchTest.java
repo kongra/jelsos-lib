@@ -2,12 +2,13 @@ package jelsos.lib;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class StopwatchTest {
 
-  Stopwatch timer;
+  @Nullable Stopwatch timer;
 
   @BeforeEach
   void setUp() {

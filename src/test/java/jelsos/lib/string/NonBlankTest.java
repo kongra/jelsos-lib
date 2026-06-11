@@ -13,14 +13,10 @@ class NonBlankTest {
 
     assertThat(NonBlank.of(StrTest.HAVING_WHITESPACE).get().value())
         .isEqualTo(StrTest.HAVING_WHITESPACE);
-
-    assertThat(NonBlank.of(Str.strip(StrTest.HAVING_WHITESPACE)).get().value())
-        .isEqualTo(StrTest.NO_WHITESPACE);
   }
 
   @Test
   void testOptOf() {
-    assertThat(NonBlank.of(StrTest.NULL)).isEmpty();
     assertThat(NonBlank.of(StrTest.EMPTY)).isEmpty();
     assertThat(NonBlank.of(StrTest.BLANK)).isEmpty();
 

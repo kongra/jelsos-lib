@@ -1,5 +1,9 @@
 package jelsos.lib.ex;
 
+import org.eclipse.jdt.annotation.Nullable;
+
+import jelsos.lib.O;
+
 public final class Invalid extends RuntimeException {
 
   @java.io.Serial
@@ -15,7 +19,11 @@ public final class Invalid extends RuntimeException {
     this(null, cause, what);
   }
 
-  public Invalid(String message, Throwable cause, Object what) {
+  public Invalid(
+      @Nullable String message,
+      @Nullable Throwable cause,
+      Object what) {
+
     final var enableSuppression = false;
     final var writableStackTrace = false;
     super(message, cause, enableSuppression, writableStackTrace);
@@ -28,9 +36,8 @@ public final class Invalid extends RuntimeException {
 
   @Override
   public String toString() {
-    return "Invalid [getWhat()=%s, super.toString()=%s]".formatted(
-        getWhat(),
-        super.toString());
+    return O.nn("Invalid [getWhat()=%s, super.toString()=%s]"
+        .formatted(getWhat(), super.toString()));
   }
 
 }

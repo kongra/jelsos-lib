@@ -3,6 +3,8 @@ package jelsos.lib.util;
 import java.util.AbstractList;
 import java.util.List;
 
+import org.eclipse.jdt.annotation.Nullable;
+
 import jelsos.lib.O;
 import jelsos.lib.math.newtype.PosInt;
 
@@ -38,7 +40,7 @@ public final class Partitioned<T> extends AbstractList<List<T>> {
   }
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(@Nullable Object o) {
     return super.equals(o);
   }
 

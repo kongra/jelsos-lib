@@ -4,6 +4,9 @@ import java.util.Optional;
 import java.util.function.IntFunction;
 import java.util.function.IntPredicate;
 
+import org.eclipse.jdt.annotation.Nullable;
+
+import jelsos.lib.O;
 import jelsos.lib.newtype.AbstractNewtype;
 
 public class NewInt extends AbstractNewtype<NewInt> {
@@ -11,15 +14,16 @@ public class NewInt extends AbstractNewtype<NewInt> {
   protected static <S extends NewInt> Optional<S> of(int n,
       IntPredicate pred,
       IntFunction<S> constr) {
-    return pred.test(n)
+    return O.nn(pred.test(n)
         ? Optional.of(constr.apply(n))
-        : Optional.empty();
+        : Optional.empty());
   }
 
-  protected static <S extends NewInt> Optional<S> ofNullable(Integer n,
+  protected static <S extends NewInt> Optional<S> ofNullable(
+      @Nullable Integer n,
       IntPredicate pred,
       IntFunction<S> constr) {
-    return null == n ? Optional.empty() : of(n, pred, constr);
+    return null == n ? O.nn(Optional.empty()) : of(n, pred, constr);
   }
 
   private final int value;
@@ -44,7 +48,7 @@ public class NewInt extends AbstractNewtype<NewInt> {
 
   @Override
   public String toString() {
-    return String.valueOf(value());
+    return O.nn(String.valueOf(value()));
   }
 
 }

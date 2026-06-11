@@ -6,21 +6,26 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class NewtonsSqrtTest {
 
+  @Nullable
   NewtonsMethod<BigDecimal> newtonsMethod;
 
+  @Nullable
   NewtonsSqrt<BigDecimal> sqrt;
 
   @BeforeEach
   void setUp() {
     final var mc = new MathContext(100, RoundingMode.HALF_EVEN);
     final var fixedPoint = new NumericFixedPointTest.BigDecimalFixedPoint(mc);
-    newtonsMethod = () -> fixedPoint;
-    sqrt = () -> newtonsMethod;
+
+    NewtonsMethod<BigDecimal> fpNewtonsMethod = () -> fixedPoint;
+    this.newtonsMethod = fpNewtonsMethod;
+    sqrt = () -> fpNewtonsMethod;
   }
 
   @Test

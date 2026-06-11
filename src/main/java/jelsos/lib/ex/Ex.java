@@ -3,7 +3,7 @@ package jelsos.lib.ex;
 import java.util.concurrent.Callable;
 import java.util.function.Supplier;
 
-import jelsos.lib.O;
+import jelsos.lib.function.NnSupplier;
 
 public final class Ex {
 
@@ -17,71 +17,64 @@ public final class Ex {
 
   public static <T> T rethrow(Throwable t) {
     sneakyThrow0(t);
-    return null;
+    throw new Impossible();
   }
 
-  public static Supplier<ExInfo> info(String message) {
+  public static NnSupplier<ExInfo> info(String message) {
     return () -> new ExInfo(message);
   }
 
-  public static Supplier<ExInfo> info(String message, Object data) {
+  public static NnSupplier<ExInfo> info(String message, Object data) {
     return () -> new ExInfo(message, data);
   }
 
-  public static Supplier<ExInfo> info(Supplier<String> messageSupplier) {
-    O.nn(messageSupplier);
+  public static NnSupplier<ExInfo> info(NnSupplier<String> messageSupplier) {
     return () -> new ExInfo(messageSupplier.get());
   }
 
-  public static Supplier<ExInfo> info(Supplier<String> messageSupplier,
+  public static NnSupplier<ExInfo> info(
+      NnSupplier<String> messageSupplier,
       Object data) {
-    O.nn(messageSupplier);
     return () -> new ExInfo(messageSupplier.get(), data);
   }
 
-  public static Supplier<ExInfo> info(String message,
+  public static NnSupplier<ExInfo> info(String message,
       Supplier<Object> dataSupplier) {
-    O.nn(dataSupplier);
     return () -> new ExInfo(message, dataSupplier.get());
   }
 
-  public static Supplier<ExInfo> info(Supplier<String> messageSupplier,
-      Supplier<Object> dataSupplier) {
-    O.nn(messageSupplier);
-    O.nn(dataSupplier);
+  public static NnSupplier<ExInfo> info(
+      NnSupplier<String> messageSupplier,
+      NnSupplier<Object> dataSupplier) {
     return () -> new ExInfo(messageSupplier.get(), dataSupplier.get());
   }
 
-  public static Supplier<Invalid> invalid(String message, Object what) {
+  public static NnSupplier<Invalid> invalid(String message, Object what) {
     return () -> new Invalid(message, what);
   }
 
-  public static Supplier<Invalid> invalid(Supplier<String> messageSupplier,
+  public static NnSupplier<Invalid> invalid(NnSupplier<String> messageSupplier,
       Object what) {
-    O.nn(messageSupplier);
     return () -> new Invalid(messageSupplier.get(), what);
   }
 
-  public static Supplier<Invalid> invalid(String message,
-      Supplier<Object> whatSupplier) {
-    O.nn(whatSupplier);
+  public static NnSupplier<Invalid> invalid(
+      String message,
+      NnSupplier<Object> whatSupplier) {
     return () -> new Invalid(message, whatSupplier.get());
   }
 
-  public static Supplier<Invalid> invalid(Supplier<String> messageSupplier,
-      Supplier<Object> whatSupplier) {
-    O.nn(messageSupplier);
-    O.nn(whatSupplier);
+  public static Supplier<Invalid> invalid(NnSupplier<String> messageSupplier,
+      NnSupplier<Object> whatSupplier) {
     return () -> new Invalid(messageSupplier.get(), whatSupplier.get());
   }
 
-  public static Supplier<Impossible> impossible(String message) {
+  public static NnSupplier<Impossible> impossible(String message) {
     return () -> new Impossible(message);
   }
 
-  public static Supplier<Impossible> impossible(
-      Supplier<String> messageSupplier) {
-    O.nn(messageSupplier);
+  public static NnSupplier<Impossible> impossible(
+      NnSupplier<String> messageSupplier) {
     return () -> new Impossible(messageSupplier.get());
   }
 

@@ -3,6 +3,8 @@ package jelsos.lib.math;
 import java.util.Optional;
 import java.util.function.Supplier;
 
+import org.eclipse.jdt.annotation.Nullable;
+
 public enum Kleene {
 
   TRUE, FALSE, UNKNOWN;
@@ -11,7 +13,7 @@ public enum Kleene {
     return b ? TRUE : FALSE;
   }
 
-  public static Kleene fromBoolean(Boolean b) {
+  public static Kleene fromBoolean(@Nullable Boolean b) {
     return b == null ? UNKNOWN : fromBoolean(b.booleanValue());
   }
 

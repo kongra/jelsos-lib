@@ -8,6 +8,7 @@
   <artifactId>jelsos-lib</artifactId>
   <version>1.0</version>
   <properties>
+    <eclipse-jdt-annotation.version>2.3.0</eclipse-jdt-annotation.version>
     <assertj.version>3.27.3</assertj.version>
     <jmh.version>1.37</jmh.version>
     <junit-jupiter.version>6.1.0</junit-jupiter.version>
@@ -22,6 +23,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
+    <dependency>
+      <groupId>org.eclipse.jdt</groupId>
+      <artifactId>org.eclipse.jdt.annotation</artifactId>
+      <version>${eclipse-jdt-annotation.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>

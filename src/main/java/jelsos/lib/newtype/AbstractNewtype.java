@@ -1,5 +1,7 @@
 package jelsos.lib.newtype;
 
+import org.eclipse.jdt.annotation.Nullable;
+
 public abstract class AbstractNewtype<T extends AbstractNewtype<T>> {
 
   protected abstract int hash();
@@ -13,7 +15,7 @@ public abstract class AbstractNewtype<T extends AbstractNewtype<T>> {
 
   @SuppressWarnings("unchecked")
   @Override
-  public final boolean equals(Object obj) {
+  public final boolean equals(@Nullable Object obj) {
     return this == obj || obj != null && this.getClass() == obj.getClass()
         && isEqualTo((T) obj);
   }

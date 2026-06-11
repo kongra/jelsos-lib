@@ -22,7 +22,7 @@ public final class NonDestructiveIterable<T> implements Iterable<T> {
 
   @Override
   public Iterator<T> iterator() {
-    return NonDestructiveIterator.of(iterable.iterator());
+    return NonDestructiveIterator.of(O.nn(iterable.iterator()));
   }
 
 }

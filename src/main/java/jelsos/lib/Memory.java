@@ -10,11 +10,11 @@ public final class Memory {
     final var used = total - free;
     final var digits = 2;
 
-    return "Used: %s | Free: %s | Total :%s | Max: %s".formatted(
+    return O.nn("Used: %s | Free: %s | Total :%s | Max: %s".formatted(
         HumanReadable.bytes(used, digits),
         HumanReadable.bytes(free, digits),
         HumanReadable.bytes(total, digits),
-        HumanReadable.bytes(mx, digits));
+        HumanReadable.bytes(mx, digits)));
   }
 
   private Memory() {}

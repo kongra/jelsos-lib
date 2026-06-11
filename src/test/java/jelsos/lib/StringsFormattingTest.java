@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.junit.jupiter.api.Test;
 
 class StringsFormattingTest {
@@ -54,7 +55,7 @@ class StringsFormattingTest {
       }
 
       @Override
-      public boolean equals(Object obj) {
+      public boolean equals(@Nullable Object obj) {
         return this == obj ||
             obj instanceof final Range other
                 && other.end == end;

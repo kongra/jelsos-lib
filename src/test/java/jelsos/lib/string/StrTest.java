@@ -2,11 +2,12 @@ package jelsos.lib.string;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.junit.jupiter.api.Test;
 
 class StrTest {
 
-  static final String NULL = null;
+  static final @Nullable String NULL = null;
 
   static final String EMPTY = "";
 

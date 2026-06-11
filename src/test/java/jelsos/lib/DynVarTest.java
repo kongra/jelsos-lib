@@ -2,6 +2,7 @@ package jelsos.lib;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +11,7 @@ class DynVarTest {
   static final ScopedValue<String> SCOPED_VALUE = ScopedValue
       .newInstance();
 
-  DynVar<String> dynVar;
+  @Nullable DynVar<String> dynVar;
 
   @BeforeEach
   void setUp() {

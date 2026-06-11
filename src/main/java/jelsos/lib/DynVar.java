@@ -10,7 +10,7 @@ import jelsos.lib.function.Deref;
 public final class DynVar<T> implements Deref<Optional<T>> {
 
   public static <T> DynVar<T> newInstance() {
-    return of(ScopedValue.newInstance());
+    return of(O.nn(ScopedValue.newInstance()));
   }
 
   public static <T> DynVar<T> of(ScopedValue<T> scopedValue) {
@@ -31,13 +31,14 @@ public final class DynVar<T> implements Deref<Optional<T>> {
   }
 
   public T get(Supplier<T> defaultValueSupplier) {
-    return scopedValue.isBound() ? scopedValue.get() : defaultValueSupplier.get();
+    return scopedValue.isBound() ? scopedValue.get()
+        : defaultValueSupplier.get();
   }
 
   @Override
   public Optional<T> deref() {
-    return scopedValue.isBound() ? Optional.of(scopedValue.get())
-        : Optional.empty();
+    return O.nn(scopedValue.isBound() ? Optional.of(scopedValue.get())
+        : Optional.empty());
   }
 
   private final ScopedValue<T> scopedValue;

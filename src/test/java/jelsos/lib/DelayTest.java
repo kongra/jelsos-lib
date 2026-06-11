@@ -2,6 +2,7 @@ package jelsos.lib;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.eclipse.jdt.annotation.Nullable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,11 +13,11 @@ class DelayTest {
 
   static final String TEST_VALUE = "Hello, World!";
 
-  Delay<String> delay;
+  @Nullable Delay<String> delay;
 
-  Delay<String> delayThrowing;
+  @Nullable Delay<String> delayThrowing;
 
-  AtomicInteger supplierCallsCount;
+  @Nullable AtomicInteger supplierCallsCount;
 
   @BeforeEach
   void setUp() {

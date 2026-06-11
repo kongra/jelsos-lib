@@ -84,7 +84,7 @@ public final class BigDecimalInstances {
 
       @Override
       public BigDecimal add(BigDecimal x, BigDecimal y) {
-        return x.add(y, mc);
+        return O.nn(x.add(y, mc));
       }
 
       @Override
