@@ -1,4 +1,4 @@
-# Code Review: telsos-java-lib
+# Code Review: jelsos-lib
 
 **Reviewed:** 2026-03-10
 **Reviewer:** Claude Sonnet 4.6

@@ -5,23 +5,19 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>kongra</groupId>
-  <artifactId>telsos-java-lib</artifactId>
+  <artifactId>jelsos-lib</artifactId>
   <version>1.0</version>
   <properties>
     <assertj.version>3.27.3</assertj.version>
     <jmh.version>1.37</jmh.version>
-    <junit-jupiter.version>5.12.0</junit-jupiter.version>
+    <junit-jupiter.version>6.1.0</junit-jupiter.version>
     <maven-clean-plugin.version>3.3.2</maven-clean-plugin.version>
     <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
-    <maven.compiler.source>25</maven.compiler.source>
-    <maven.compiler.target>25</maven.compiler.target>
+    <maven.compiler.release>26</maven.compiler.release>
     <maven-deploy-plugin.version>3.1.2</maven-deploy-plugin.version>
-    <maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
     <maven-install-plugin.version>3.1.2</maven-install-plugin.version>
     <maven-jar-plugin.version>3.4.1</maven-jar-plugin.version>
-    <maven-project-info-reports-plugin.version>3.5.0</maven-project-info-reports-plugin.version>
     <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
-    <maven-site-plugin.version>4.0.0-M14</maven-site-plugin.version>
     <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -35,12 +31,6 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit-jupiter.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-params</artifactId>
       <version>${junit-jupiter.version}</version>
       <scope>test</scope>
     </dependency>
@@ -83,10 +73,6 @@
           <version>${maven-surefire-plugin.version}</version>
         </plugin>
         <plugin>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <version>${maven-failsafe-plugin.version}</version>
-        </plugin>
-        <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>${maven-jar-plugin.version}</version>
           <configuration>
@@ -102,14 +88,6 @@
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>${maven-deploy-plugin.version}</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>${maven-site-plugin.version}</version>
-        </plugin>
-        <plugin>
-          <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>${maven-project-info-reports-plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
