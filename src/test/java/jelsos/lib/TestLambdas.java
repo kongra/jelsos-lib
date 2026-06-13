@@ -34,7 +34,7 @@ class TestLambdas {
     final ToIntFunction<String> f1 = String::length;
     System.out.println(f1.applyAsInt("xyz"));
 
-    final var coll1 = List.of(1, 2, 3, 4, 5, 6);
+    final var coll1 = O.nn(List.of(1, 2, 3, 4, 5, 6));
     doColl(coll1, System.out::println);
 
     assertThat(coll1).isNotEmpty();

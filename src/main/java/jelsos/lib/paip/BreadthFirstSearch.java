@@ -5,9 +5,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 import jelsos.lib.O;
+import jelsos.lib.function.Supplier;
 
 public final class BreadthFirstSearch<T> {
 
@@ -24,16 +24,18 @@ public final class BreadthFirstSearch<T> {
 
   public Optional<T> search(T start, CarrierSupplier<T> cs) {
     final var carrier = cs.get();
-    carrier.addFirst(List.of(start));
+    carrier.addFirst(O.nn(List.of(start)));
     return searchImpl(carrier);
   }
 
   private Optional<T> searchImpl(Deque<Iterable<T>> carrier) {
     while (!carrier.isEmpty()) {
-      for (final T element : carrier.pollFirst()) {
+      @SuppressWarnings("null")
+      final var iterable = carrier.pollFirst();
+      for (final T element : iterable) {
         if (goal.test(element))
           // We have a success
-          return Optional.of(element);
+          return O.nn(Optional.of(element));
 
         final var it = adjs.apply(element).iterator();
         if (it.hasNext())
@@ -42,7 +44,7 @@ public final class BreadthFirstSearch<T> {
     }
 
     // No more iterables in the carrier - we didn't succeed
-    return Optional.empty();
+    return O.nn(Optional.empty());
   }
 
   private final Adjs<T> adjs;

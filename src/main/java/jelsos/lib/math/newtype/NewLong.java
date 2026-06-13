@@ -1,9 +1,12 @@
 package jelsos.lib.math.newtype;
 
 import java.util.Optional;
-import java.util.function.LongFunction;
 import java.util.function.LongPredicate;
 
+import org.eclipse.jdt.annotation.Nullable;
+
+import jelsos.lib.O;
+import jelsos.lib.function.LongFunction;
 import jelsos.lib.newtype.AbstractNewtype;
 
 public class NewLong extends AbstractNewtype<NewLong> {
@@ -12,16 +15,15 @@ public class NewLong extends AbstractNewtype<NewLong> {
       long n,
       LongPredicate pred,
       LongFunction<S> constr) {
-    return pred.test(n)
-        ? Optional.of(constr.apply(n))
-        : Optional.empty();
+
+    return O.nn(pred.test(n) ? Optional.of(constr.apply(n)) : Optional.empty());
   }
 
   protected static <S extends NewLong> Optional<S> ofNullable(
-      Long n,
+      @Nullable Long n,
       LongPredicate pred,
       LongFunction<S> constr) {
-    return null == n ? Optional.empty() : of(n, pred, constr);
+    return null == n ? O.nn(Optional.empty()) : of(n, pred, constr);
   }
 
   private final long value;
@@ -46,7 +48,7 @@ public class NewLong extends AbstractNewtype<NewLong> {
 
   @Override
   public String toString() {
-    return String.valueOf(value());
+    return O.nn(String.valueOf(value()));
   }
 
 }

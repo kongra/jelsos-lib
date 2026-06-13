@@ -6,9 +6,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 import jelsos.lib.O;
+import jelsos.lib.function.Supplier;
 
 public final class DepthFirstSearch<T> {
 
@@ -25,12 +25,13 @@ public final class DepthFirstSearch<T> {
 
   public Optional<T> search(T start, CarrierSupplier<T> cs) {
     final var carrier = cs.get();
-    carrier.addFirst(List.of(start).iterator());
+    carrier.addFirst(O.nn(O.nn(List.of(start)).iterator()));
     return searchImpl(carrier);
   }
 
   private Optional<T> searchImpl(Deque<Iterator<T>> carrier) {
     while (!carrier.isEmpty()) {
+      @SuppressWarnings("null")
       final var it = carrier.getFirst();
       if (!it.hasNext()) {
         // No elements in the first iterator in carrier, let's remove it.
@@ -41,7 +42,7 @@ public final class DepthFirstSearch<T> {
       final var element = it.next();
       if (goal.test(element))
         // We have a success.
-        return Optional.of(element);
+        return O.nn(Optional.of(element));
 
       final var iteratorOverChildren = adjs.apply(element).iterator();
       if (iteratorOverChildren.hasNext()) {
@@ -50,7 +51,7 @@ public final class DepthFirstSearch<T> {
     }
 
     // No more iterables in the carrier - we didn't succeed.
-    return Optional.empty();
+    return O.nn(Optional.empty());
   }
 
   private final Adjs<T> adjs;

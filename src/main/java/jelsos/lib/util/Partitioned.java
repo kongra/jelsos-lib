@@ -36,7 +36,7 @@ public final class Partitioned<T> extends AbstractList<List<T>> {
               .formatted(index, size() - 1));
 
     // We don't make a defensive copy of the subList!
-    return list.subList(start, end);
+    return O.nn(list.subList(start, end));
   }
 
   @Override

@@ -18,6 +18,8 @@ class StringsFormattingTest {
   @Test
   void testFormatting() throws IOException {
     final var list1 = List.of(1, 2, 3, 4, 5, 6, 7, 8);
+
+    @SuppressWarnings("null")
     final var list2 = list1
         .stream()
         .filter(this::isOdd)

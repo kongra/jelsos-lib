@@ -28,7 +28,7 @@ public final class Colls {
       BiConsumer<R, T[]> addObjs,
       Function<R, S> postProcessor) {
 
-    final var areSomeObjs = objs != null && objs.length != 0;
+    final var areSomeObjs = objs.length != 0;
     final var capacity = 1 + (areSomeObjs ? objs.length : 0);
     final var coll = createWithCapacity.apply(capacity);
     addObj.accept(coll, obj);

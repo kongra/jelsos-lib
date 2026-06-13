@@ -46,6 +46,7 @@ public class BenchStreams {
 
   @Benchmark
   public static void streamLongBench(MyState state, Blackhole blackhole) {
+    @SuppressWarnings("null")
     final long sum = Stream.iterate(state.start, i -> i + 1).limit(state.n)
         .reduce(0L, Long::sum);
     state.result = sum;

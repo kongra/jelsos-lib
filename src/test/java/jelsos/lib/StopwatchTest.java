@@ -2,19 +2,19 @@ package jelsos.lib;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.eclipse.jdt.annotation.Nullable;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class StopwatchTest {
 
-  @Nullable Stopwatch timer;
+  Stopwatch timer = Stopwatch.start();
 
   @BeforeEach
   void setUp() {
     timer = Stopwatch.start();
   }
 
+  @SuppressWarnings("null")
   @Test
   void testElapsedNanosecs() {
     final var t1 = timer.elapsedNanosecs();
@@ -26,6 +26,7 @@ class StopwatchTest {
         .isGreaterThan(t1);
   }
 
+  @SuppressWarnings("null")
   @Test
   void testElapsedMsecs() {
     final var msecs = timer.elapsedMsecs();
@@ -47,6 +48,7 @@ class StopwatchTest {
         .isGreaterThan(t1);
   }
 
+  @SuppressWarnings("null")
   @Test
   void testElapstr() {
     final var s1 = timer.elapstr();

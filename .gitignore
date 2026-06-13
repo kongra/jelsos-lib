@@ -1,6 +1,5 @@
 .git/
 .quarkus/
-.settings/
 /node_modules/
 /target/
 package-lock.json

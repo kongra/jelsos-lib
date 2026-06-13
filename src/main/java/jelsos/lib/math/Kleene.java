@@ -1,9 +1,11 @@
 package jelsos.lib.math;
 
 import java.util.Optional;
-import java.util.function.Supplier;
 
 import org.eclipse.jdt.annotation.Nullable;
+
+import jelsos.lib.O;
+import jelsos.lib.function.Supplier;
 
 public enum Kleene {
 
@@ -18,12 +20,12 @@ public enum Kleene {
   }
 
   public static Optional<Kleene> parseString(String s) {
-    return switch (s) {
+    return O.nn(switch (s) {
       case "true", "TRUE"       -> Optional.of(TRUE);
       case "false", "FALSE"     -> Optional.of(FALSE);
       case "unknown", "UNKNOWN" -> Optional.of(UNKNOWN);
       default                   -> Optional.empty();
-    };
+    });
   }
 
   public static Kleene not(Kleene k) {

@@ -18,6 +18,7 @@ class StrTest {
   static final String HAVING_WHITESPACE = BLANK + NO_WHITESPACE + BLANK;
 
   @Test
+  @SuppressWarnings("null")
   void testStrip() {
     assertThat(NULL).isNull();
     assertThat(EMPTY).isEmpty();

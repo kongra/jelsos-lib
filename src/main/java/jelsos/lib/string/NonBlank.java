@@ -10,14 +10,8 @@ public final class NonBlank extends Newtype<String> {
     return of(s, NonBlank::isNonBlank, NonBlank::new);
   }
 
-  public static Optional<NonBlank> ofTrimmed(String s) {
-    return Optional.ofNullable(s)
-        .map(String::trim)
-        .flatMap(NonBlank::of);
-  }
-
   public static boolean isNonBlank(String s) {
-    return s != null && !s.isBlank();
+    return !s.isBlank();
   }
 
   private NonBlank(String value) {

@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
+import jelsos.lib.O;
 import jelsos.lib.ex.Impossible;
 import jelsos.lib.math.newtype.NatInt;
 
@@ -79,7 +80,7 @@ public final class TreePrinter<T> {
       n--;
     }
 
-    return prefix.append(suffix).toString();
+    return O.nn(prefix.append(suffix).toString());
   }
 
   private final Adjs<T> adjs;
