@@ -8,8 +8,8 @@
   <artifactId>jelsos-lib</artifactId>
   <version>1.0</version>
   <properties>
-    <eclipse-jdt-annotation.version>2.3.0</eclipse-jdt-annotation.version>
-    <assertj.version>3.27.3</assertj.version>
+    <eclipse-jdt-annotation.version>2.4.100</eclipse-jdt-annotation.version>
+    <assertj.version>3.27.7</assertj.version>
     <jmh.version>1.37</jmh.version>
     <junit-jupiter.version>6.1.0</junit-jupiter.version>
     <maven-clean-plugin.version>3.3.2</maven-clean-plugin.version>
