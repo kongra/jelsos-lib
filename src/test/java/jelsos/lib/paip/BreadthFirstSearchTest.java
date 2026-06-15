@@ -1,31 +1,61 @@
 package jelsos.lib.paip;
 
+import static java.util.Map.entry;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayDeque;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
-public class TestDepthFirstSearch {
+import jelsos.lib.O;
+
+public class BreadthFirstSearchTest {
+
+  @SuppressWarnings("null")
+  public static Entry<String, Iterable<String>> en(String key,
+      String... values) {
+    return entry(key, O.nn(List.of(values)));
+  }
+
+  @SuppressWarnings("null")
+  public static final Map<String, Iterable<String>> tree1 = Map.ofEntries(
+      en("a", "b", "c"), en("b", "d", "e"), en("c", "f", "g"),
+      en("d", "h", "i"), en("e", "j", "k"), en("f", "l", "m"),
+      en("g", "n", "o"), en("h", "p", "q"), en("i", "r", "s"),
+      en("o", "t", "u"), en("u", "v", "w"));
+
+  @SuppressWarnings("null")
+  public static Iterable<String> children(String s) {
+    return tree1.getOrDefault(s, List.of());
+  }
 
   public static Optional<String> search(String start, String goal) {
-    return DepthFirstSearch.of(TestBreadthFirstSearch::children, goal::equals)
+    return BreadthFirstSearch.of(BreadthFirstSearchTest::children, goal::equals)
         .search(start);
   }
 
   public static Optional<String> searchWithArray(String start, String goal) {
-    return DepthFirstSearch.of(TestBreadthFirstSearch::children, goal::equals)
+    return BreadthFirstSearch.of(BreadthFirstSearchTest::children, goal::equals)
         .search(start, ArrayDeque::new);
   }
 
+  @SuppressWarnings("null")
+  public static Iterable<String> children1(String s) {
+    return tree1.getOrDefault(s, List.of());
+  }
+
   public static Optional<String> search1(String start, String goal) {
-    return DepthFirstSearch.of(TestBreadthFirstSearch::children1, goal::equals)
-        .search(start);
+    return BreadthFirstSearch
+        .of(BreadthFirstSearchTest::children1, goal::equals).search(start);
   }
 
   public static Optional<String> searchWithArray1(String start, String goal) {
-    return DepthFirstSearch.of(TestBreadthFirstSearch::children1, goal::equals)
+    return BreadthFirstSearch
+        .of(BreadthFirstSearchTest::children1, goal::equals)
         .search(start, ArrayDeque::new);
   }
 

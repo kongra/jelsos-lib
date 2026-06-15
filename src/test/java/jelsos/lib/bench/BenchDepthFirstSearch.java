@@ -8,7 +8,7 @@ import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.infra.Blackhole;
 
-import jelsos.lib.paip.TestDepthFirstSearch;
+import jelsos.lib.paip.DepthFirstSearchTest;
 
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
@@ -16,25 +16,25 @@ public class BenchDepthFirstSearch {
 
   @Benchmark
   public static void benchaa(Blackhole blackhole) {
-    final var v = TestDepthFirstSearch.search1("a", "a");
+    final var v = DepthFirstSearchTest.search1("a", "a");
     blackhole.consume(v);
   }
 
   @Benchmark
   public static void benchap(Blackhole blackhole) {
-    final var v = TestDepthFirstSearch.search1("a", "p");
+    final var v = DepthFirstSearchTest.search1("a", "p");
     blackhole.consume(v);
   }
 
   @Benchmark
   public static void benchau(Blackhole blackhole) {
-    final var v = TestDepthFirstSearch.search1("a", "u");
+    final var v = DepthFirstSearchTest.search1("a", "u");
     blackhole.consume(v);
   }
 
   @Benchmark
   public static void benchax(Blackhole blackhole) {
-    final var v = TestDepthFirstSearch.search1("a", "x");
+    final var v = DepthFirstSearchTest.search1("a", "x");
     blackhole.consume(v);
   }
 

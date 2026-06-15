@@ -6,10 +6,10 @@ import java.util.function.Function;
 
 import org.junit.jupiter.api.Test;
 
-class FunctionalTests {
+class FunctionalTest {
 
   @Test
-  void test() {
+  void testFunctionApplication() {
     final Function<Double, Double> square = x -> x * x;
     final double y = square.apply(5.0);
     assertThat(y).isEqualTo(25);

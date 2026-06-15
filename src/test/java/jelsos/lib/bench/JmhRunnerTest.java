@@ -8,7 +8,7 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-class TestJmhRunner {
+class JmhRunnerTest {
 
   private static final List<Class<?>> BENCH_CLASSES = List.of(
       // BenchCh.class,

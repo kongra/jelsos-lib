@@ -6,17 +6,17 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 
-class TestSearchesSingleRun {
+class SearchesSingleRunTest {
 
   @Test
   void testBreadthFirstSearch() {
-    assertThat(TestBreadthFirstSearch.search("a", "u"))
+    assertThat(BreadthFirstSearchTest.search("a", "u"))
         .isEqualTo(Optional.of("u"));
   }
 
   @Test
   void testDepthFirstSearch() {
-    assertThat(TestDepthFirstSearch.search("a", "u"))
+    assertThat(DepthFirstSearchTest.search("a", "u"))
         .isEqualTo(Optional.of("u"));
   }
 

@@ -9,7 +9,7 @@ import java.util.function.ToIntFunction;
 
 import org.junit.jupiter.api.Test;
 
-class TestLambdas {
+class LambdasTest {
 
   static class SomeCodeToRun implements Runnable {
     @Override
