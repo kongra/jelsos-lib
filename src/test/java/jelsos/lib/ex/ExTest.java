@@ -1,8 +1,9 @@
 package jelsos.lib.ex;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import java.util.Optional;
+import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,13 +11,34 @@ class ExTest {
 
   @Test
   void testFail() {
-    final int value1 = Optional.ofNullable(256)
-        .orElseThrow(Ex.info(() -> "Invalid Stuff"));
-    assertThat(value1).isEqualTo(256);
+    final var cause = new IOException("boom");
+    assertThatThrownBy(() -> Ex.evalUnchecked(() -> { throw cause; }))
+        .isSameAs(cause);
+  }
 
-    final int value2 = Optional.ofNullable(365)
-        .orElseThrow(Ex.info("Invalid Stuff"));
-    assertThat(value2).isEqualTo(365);
+  @Test
+  void testEvalUncheckedSuccess() {
+    assertThat(Ex.evalUnchecked(() -> 42)).isEqualTo(42);
+  }
+
+  @Test
+  void testInfoSupplier() {
+    final var ex = Ex.info("msg", "data").get();
+    assertThat(ex.getMessage()).isEqualTo("msg");
+    assertThat(ex.getData()).isEqualTo("data");
+  }
+
+  @Test
+  void testInvalidSupplier() {
+    final var ex = Ex.invalid("bad input", 99).get();
+    assertThat(ex.getMessage()).isEqualTo("bad input");
+    assertThat(ex.getWhat()).isEqualTo(99);
+  }
+
+  @Test
+  void testImpossibleSupplier() {
+    final var ex = Ex.impossible("should not happen").get();
+    assertThat(ex.getMessage()).isEqualTo("should not happen");
   }
 
 }

@@ -19,16 +19,8 @@ public final class Ex {
     throw new Impossible();
   }
 
-  public static Supplier<ExInfo> info(String message) {
-    return () -> new ExInfo(message);
-  }
-
   public static Supplier<ExInfo> info(String message, Object data) {
     return () -> new ExInfo(message, data);
-  }
-
-  public static Supplier<ExInfo> info(Supplier<String> messageSupplier) {
-    return () -> new ExInfo(messageSupplier.get());
   }
 
   public static Supplier<ExInfo> info(

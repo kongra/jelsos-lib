@@ -1,7 +1,5 @@
 package jelsos.lib.ex;
 
-import org.eclipse.jdt.annotation.Nullable;
-
 import jelsos.lib.O;
 
 public final class ExInfo extends RuntimeException {
@@ -9,36 +7,24 @@ public final class ExInfo extends RuntimeException {
   @java.io.Serial
   private static final long serialVersionUID = 1L;
 
-  private final transient @Nullable Object data;
+  private final transient Object data;
 
-  public ExInfo() {
-    data = null;
-  }
-
-  public ExInfo(String message) {
-    this(message, (Object) null);
-  }
-
-  public ExInfo(Throwable cause) {
+  public ExInfo(Throwable cause, Object data) {
     super(cause);
-    data = null;
+    this.data = data;
   }
 
-  public ExInfo(String message, @Nullable Object data) {
+  public ExInfo(String message, Object data) {
     super(message);
     this.data = data;
   }
 
-  public ExInfo(String message, Throwable cause) {
-    this(message, cause, null);
-  }
-
-  public ExInfo(String message, Throwable cause, @Nullable Object data) {
+  public ExInfo(String message, Throwable cause, Object data) {
     super(message, cause);
     this.data = data;
   }
 
-  public @Nullable Object getData() {
+  public Object getData() {
     return data;
   }
 
