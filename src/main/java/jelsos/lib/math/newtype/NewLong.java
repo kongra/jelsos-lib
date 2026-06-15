@@ -6,7 +6,7 @@ import java.util.function.LongPredicate;
 import org.eclipse.jdt.annotation.Nullable;
 
 import jelsos.lib.O;
-import jelsos.lib.function.LongFunction;
+import jelsos.lib.function.LongFn;
 import jelsos.lib.newtype.AbstractNewtype;
 
 public class NewLong extends AbstractNewtype<NewLong> {
@@ -14,7 +14,7 @@ public class NewLong extends AbstractNewtype<NewLong> {
   protected static <S extends NewLong> Optional<S> of(
       long n,
       LongPredicate pred,
-      LongFunction<S> constr) {
+      LongFn<S> constr) {
 
     return O.nn(pred.test(n) ? Optional.of(constr.apply(n)) : Optional.empty());
   }
@@ -22,7 +22,7 @@ public class NewLong extends AbstractNewtype<NewLong> {
   protected static <S extends NewLong> Optional<S> ofNullable(
       @Nullable Long n,
       LongPredicate pred,
-      LongFunction<S> constr) {
+      LongFn<S> constr) {
     return null == n ? O.nn(Optional.empty()) : of(n, pred, constr);
   }
 

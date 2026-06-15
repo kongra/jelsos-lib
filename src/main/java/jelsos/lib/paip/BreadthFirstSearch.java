@@ -7,12 +7,12 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 import jelsos.lib.O;
-import jelsos.lib.function.Supplier;
+import jelsos.lib.function.Supp;
 
 public final class BreadthFirstSearch<T> {
 
   @FunctionalInterface
-  public interface CarrierSupplier<T> extends Supplier<Deque<Iterable<T>>> {}
+  public interface CarrierSupplier<T> extends Supp<Deque<Iterable<T>>> {}
 
   public static <T> BreadthFirstSearch<T> of(Adjs<T> adjs, Predicate<T> goal) {
     return new BreadthFirstSearch<>(adjs, goal);

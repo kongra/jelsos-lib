@@ -8,12 +8,12 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 import jelsos.lib.O;
-import jelsos.lib.function.Supplier;
+import jelsos.lib.function.Supp;
 
 public final class DepthFirstSearch<T> {
 
   @FunctionalInterface
-  public interface CarrierSupplier<T> extends Supplier<Deque<Iterator<T>>> {}
+  public interface CarrierSupplier<T> extends Supp<Deque<Iterator<T>>> {}
 
   public static <T> DepthFirstSearch<T> of(Adjs<T> adjs, Predicate<T> goal) {
     return new DepthFirstSearch<>(adjs, goal);

@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.eclipse.jdt.annotation.Nullable;
 
 import jelsos.lib.O;
-import jelsos.lib.function.Supplier;
+import jelsos.lib.function.Supp;
 
 public enum Kleene {
 
@@ -36,7 +36,7 @@ public enum Kleene {
     };
   }
 
-  public static Kleene not(Supplier<Kleene> supplier) {
+  public static Kleene not(Supp<Kleene> supplier) {
     return not(supplier.get());
   }
 
@@ -44,7 +44,7 @@ public enum Kleene {
     return not(this);
   }
 
-  public static Kleene and(Kleene a, Supplier<Kleene> b) {
+  public static Kleene and(Kleene a, Supp<Kleene> b) {
     return switch (a) {
       case TRUE    -> b.get();
       case FALSE   -> FALSE;
@@ -52,11 +52,11 @@ public enum Kleene {
     };
   }
 
-  public Kleene and(Supplier<Kleene> b) {
+  public Kleene and(Supp<Kleene> b) {
     return and(this, b);
   }
 
-  public static Kleene or(Kleene a, Supplier<Kleene> b) {
+  public static Kleene or(Kleene a, Supp<Kleene> b) {
     return switch (a) {
       case TRUE    -> TRUE;
       case FALSE   -> b.get();
@@ -64,11 +64,11 @@ public enum Kleene {
     };
   }
 
-  public Kleene or(Supplier<Kleene> b) {
+  public Kleene or(Supp<Kleene> b) {
     return or(this, b);
   }
 
-  public static Kleene xor(Kleene a, Supplier<Kleene> b) {
+  public static Kleene xor(Kleene a, Supp<Kleene> b) {
     return switch (a) {
       case TRUE    -> not(b);
       case FALSE   -> b.get();
@@ -76,7 +76,7 @@ public enum Kleene {
     };
   }
 
-  public Kleene xor(Supplier<Kleene> b) {
+  public Kleene xor(Supp<Kleene> b) {
     return xor(this, b);
   }
 

@@ -2,7 +2,7 @@ package jelsos.lib.ex;
 
 import java.util.concurrent.Callable;
 
-import jelsos.lib.function.Supplier;
+import jelsos.lib.function.Supp;
 
 public final class Ex {
 
@@ -19,53 +19,53 @@ public final class Ex {
     throw new Impossible();
   }
 
-  public static Supplier<ExInfo> info(String message, Object data) {
+  public static Supp<ExInfo> info(String message, Object data) {
     return () -> new ExInfo(message, data);
   }
 
-  public static Supplier<ExInfo> info(
-      Supplier<String> messageSupplier,
+  public static Supp<ExInfo> info(
+      Supp<String> messageSupplier,
       Object data) {
     return () -> new ExInfo(messageSupplier.get(), data);
   }
 
-  public static Supplier<ExInfo> info(String message,
-      Supplier<Object> dataSupplier) {
+  public static Supp<ExInfo> info(String message,
+      Supp<Object> dataSupplier) {
     return () -> new ExInfo(message, dataSupplier.get());
   }
 
-  public static Supplier<ExInfo> info(
-      Supplier<String> messageSupplier,
-      Supplier<Object> dataSupplier) {
+  public static Supp<ExInfo> info(
+      Supp<String> messageSupplier,
+      Supp<Object> dataSupplier) {
     return () -> new ExInfo(messageSupplier.get(), dataSupplier.get());
   }
 
-  public static Supplier<Invalid> invalid(String message, Object what) {
+  public static Supp<Invalid> invalid(String message, Object what) {
     return () -> new Invalid(message, what);
   }
 
-  public static Supplier<Invalid> invalid(Supplier<String> messageSupplier,
+  public static Supp<Invalid> invalid(Supp<String> messageSupplier,
       Object what) {
     return () -> new Invalid(messageSupplier.get(), what);
   }
 
-  public static Supplier<Invalid> invalid(
+  public static Supp<Invalid> invalid(
       String message,
-      Supplier<Object> whatSupplier) {
+      Supp<Object> whatSupplier) {
     return () -> new Invalid(message, whatSupplier.get());
   }
 
-  public static Supplier<Invalid> invalid(Supplier<String> messageSupplier,
-      Supplier<Object> whatSupplier) {
+  public static Supp<Invalid> invalid(Supp<String> messageSupplier,
+      Supp<Object> whatSupplier) {
     return () -> new Invalid(messageSupplier.get(), whatSupplier.get());
   }
 
-  public static Supplier<Impossible> impossible(String message) {
+  public static Supp<Impossible> impossible(String message) {
     return () -> new Impossible(message);
   }
 
-  public static Supplier<Impossible> impossible(
-      Supplier<String> messageSupplier) {
+  public static Supp<Impossible> impossible(
+      Supp<String> messageSupplier) {
     return () -> new Impossible(messageSupplier.get());
   }
 

@@ -2,7 +2,7 @@
 package jelsos.lib.function;
 
 @FunctionalInterface
-public interface Supplier<T> extends java.util.function.Supplier<T> {
+public interface Supp<T> extends java.util.function.Supplier<T> {
 
   @Override
   T get();
