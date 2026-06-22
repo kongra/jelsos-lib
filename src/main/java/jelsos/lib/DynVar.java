@@ -1,19 +1,21 @@
 package jelsos.lib;
 
-import java.util.Optional;
 import java.util.concurrent.Callable;
-import java.util.function.Supplier;
+
+import org.eclipse.jdt.annotation.NonNull;
 
 import jelsos.lib.ex.Ex;
 import jelsos.lib.function.Deref;
+import jelsos.lib.function.Supp;
 
-public final class DynVar<T> implements Deref<Optional<T>> {
+public final class DynVar<@NonNull T> implements Deref<Opt<T>> {
 
-  public static <T> DynVar<T> newInstance() {
-    return of(O.nn(ScopedValue.newInstance()));
+  @SuppressWarnings("null")
+  public static <@NonNull T> DynVar<T> newInstance() {
+    return of(ScopedValue.newInstance());
   }
 
-  public static <T> DynVar<T> of(ScopedValue<T> scopedValue) {
+  public static <@NonNull T> DynVar<T> of(ScopedValue<T> scopedValue) {
     return new DynVar<>(scopedValue);
   }
 
@@ -26,24 +28,24 @@ public final class DynVar<T> implements Deref<Optional<T>> {
         () -> ScopedValue.where(scopedValue, value).call(body::call));
   }
 
+  @SuppressWarnings("null")
   public T get(T defaultValue) {
-    return scopedValue.orElse(defaultValue);
+    return O.nn(scopedValue.orElse(defaultValue));
   }
 
-  public T get(Supplier<T> defaultValueSupplier) {
-    return scopedValue.isBound() ? scopedValue.get()
-        : defaultValueSupplier.get();
+  public T get(Supp<T> defaultValueSupplier) {
+    return deref().orElseGet(defaultValueSupplier);
   }
 
+  @SuppressWarnings("null")
   @Override
-  public Optional<T> deref() {
-    return O.nn(scopedValue.isBound() ? Optional.of(scopedValue.get())
-        : Optional.empty());
+  public Opt<T> deref() {
+    return scopedValue.isBound() ? Opt.of(scopedValue.get()) : Opt.empty();
   }
 
   private final ScopedValue<T> scopedValue;
 
   private DynVar(ScopedValue<T> scopedValue) {
-    this.scopedValue = O.nn(scopedValue);
+    this.scopedValue = scopedValue;
   }
 }

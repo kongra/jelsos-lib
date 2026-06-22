@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
+import jelsos.lib.Opt;
+
 class KleeneTest {
 
   @Test
@@ -19,16 +21,16 @@ class KleeneTest {
 
   @Test
   void testParseString() {
-    assertThat(Kleene.parseString("true")).contains(Kleene.TRUE);
-    assertThat(Kleene.parseString("TRUE")).contains(Kleene.TRUE);
+    assertThat(Kleene.parseString("true")).isEqualTo(Opt.of(Kleene.TRUE));
+    assertThat(Kleene.parseString("TRUE")).isEqualTo(Opt.of(Kleene.TRUE));
 
-    assertThat(Kleene.parseString("false")).contains(Kleene.FALSE);
-    assertThat(Kleene.parseString("FALSE")).contains(Kleene.FALSE);
+    assertThat(Kleene.parseString("false")).isEqualTo(Opt.of(Kleene.FALSE));
+    assertThat(Kleene.parseString("FALSE")).isEqualTo(Opt.of(Kleene.FALSE));
 
-    assertThat(Kleene.parseString("unknown")).contains(Kleene.UNKNOWN);
-    assertThat(Kleene.parseString("UNKNOWN")).contains(Kleene.UNKNOWN);
+    assertThat(Kleene.parseString("unknown")).isEqualTo(Opt.of(Kleene.UNKNOWN));
+    assertThat(Kleene.parseString("UNKNOWN")).isEqualTo(Opt.of(Kleene.UNKNOWN));
 
-    assertThat(Kleene.parseString("$^@$^%---+++")).isEmpty();
+    assertThat(Kleene.parseString("$^@$^%---+++")).isEqualTo(Opt.empty());
   }
 
   @Test

@@ -1,14 +1,14 @@
 package jelsos.lib.math.newtype;
 
-import java.util.Optional;
+import jelsos.lib.Opt;
 
 public final class NatLong extends NewLong {
 
-  public static Optional<NatLong> of(long n) {
+  public static Opt<NatLong> of(long n) {
     return of(n, NatLong::isNat, NatLong::new);
   }
 
-  public static Optional<NatLong> ofNullable(Long n) {
+  public static Opt<NatLong> ofNullable(Long n) {
     return ofNullable(n, NatLong::isNat, NatLong::new);
   }
 

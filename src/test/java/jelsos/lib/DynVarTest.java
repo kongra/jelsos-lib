@@ -6,14 +6,13 @@ import org.junit.jupiter.api.Test;
 
 class DynVarTest {
 
-  static final ScopedValue<String> SCOPED_VALUE = 
-    O.nn(ScopedValue.newInstance());
+  static final ScopedValue<String> SCOPED_VALUE = O.nn(ScopedValue.newInstance());
 
   DynVar<String> dynVar = DynVar.of(SCOPED_VALUE);
 
   @Test
   void testExec() {
-    assertThat(dynVar.get()).isEmpty();
+    assertThat(dynVar.get()).isEqualTo(Opt.empty());
 
     dynVar.exec("value-1", () -> {
       assertThat(dynVar.get().orElseThrow()).isEqualTo("value-1");
@@ -28,7 +27,7 @@ class DynVarTest {
 
   @Test
   void testEval() {
-    assertThat(dynVar.get()).isEmpty();
+    assertThat(dynVar.get()).isEqualTo(Opt.empty());
 
     final var result = dynVar.eval("value-1", () -> {
       assertThat(dynVar.get().orElseThrow()).isEqualTo("value-1");
@@ -45,7 +44,7 @@ class DynVarTest {
 
   @Test
   void testGet() {
-    assertThat(dynVar.get()).isEmpty();
+    assertThat(dynVar.get()).isEqualTo(Opt.empty());
     assertThat(dynVar.get("default-value")).isEqualTo("default-value");
     assertThat(dynVar.get(() -> "supplied-default-value"))
         .isEqualTo("supplied-default-value");

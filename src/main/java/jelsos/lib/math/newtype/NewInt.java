@@ -1,29 +1,29 @@
 package jelsos.lib.math.newtype;
 
-import java.util.Optional;
 import java.util.function.IntFunction;
 import java.util.function.IntPredicate;
 
 import org.eclipse.jdt.annotation.Nullable;
 
 import jelsos.lib.O;
+import jelsos.lib.Opt;
 import jelsos.lib.newtype.AbstractNewtype;
 
 public class NewInt extends AbstractNewtype<NewInt> {
 
-  protected static <S extends NewInt> Optional<S> of(int n,
+  protected static <S extends NewInt> Opt<S> of(int n,
       IntPredicate pred,
       IntFunction<S> constr) {
-    return O.nn(pred.test(n)
-        ? Optional.of(constr.apply(n))
-        : Optional.empty());
+    return pred.test(n)
+        ? Opt.of(constr.apply(n))
+        : Opt.empty();
   }
 
-  protected static <S extends NewInt> Optional<S> ofNullable(
+  protected static <S extends NewInt> Opt<S> ofNullable(
       @Nullable Integer n,
       IntPredicate pred,
       IntFunction<S> constr) {
-    return null == n ? O.nn(Optional.empty()) : of(n, pred, constr);
+    return null == n ? Opt.empty() : of(n, pred, constr);
   }
 
   private final int value;

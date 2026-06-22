@@ -1,14 +1,14 @@
 package jelsos.lib.math.newtype;
 
-import java.util.Optional;
+import jelsos.lib.Opt;
 
 public final class PosInt extends NewInt {
 
-  public static Optional<PosInt> of(int n) {
+  public static Opt<PosInt> of(int n) {
     return of(n, PosInt::isPos, PosInt::new);
   }
 
-  public static Optional<PosInt> ofNullable(Integer n) {
+  public static Opt<PosInt> ofNullable(Integer n) {
     return ofNullable(n, PosInt::isPos, PosInt::new);
   }
 

@@ -1,20 +1,22 @@
 package jelsos.lib.function;
 
+import org.eclipse.jdt.annotation.NonNull;
+
 @FunctionalInterface
-public interface Fn<T, R> extends java.util.function.Function<T, R> {
+public interface Fn<@NonNull T, @NonNull R> extends java.util.function.Function<T, R> {
 
     @Override
     R apply(T t);
 
-    default <V> Fn<V, R> compose(Fn<? super V, ? extends T> before) {
+    default <V> Fn<@NonNull V, @NonNull R> compose(Fn<? super V, ? extends T> before) {
         return (V v) -> apply(before.apply(v));
     }
 
-    default <V> Fn<T, V> andThen(Fn<? super R, ? extends V> after) {
+    default <V> Fn<@NonNull T, @NonNull V> andThen(Fn<? super R, ? extends V> after) {
         return (T t) -> after.apply(apply(t));
     }
 
-    static <T> Fn<T, T> identity() {
+    static <T> Fn<@NonNull T, @NonNull T> identity() {
         return t -> t;
     }
 }

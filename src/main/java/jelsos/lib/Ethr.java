@@ -2,32 +2,34 @@ package jelsos.lib;
 
 import java.util.NoSuchElementException;
 
+import org.eclipse.jdt.annotation.NonNull;
+
 import jelsos.lib.ex.Err;
 import jelsos.lib.ex.Ex;
 import jelsos.lib.function.Fn;
 import jelsos.lib.function.Supp;
 
-public sealed interface Ethr<R> {
+public sealed interface Ethr<@NonNull R> {
 
-  record Ok<R>(R value) implements Ethr<R> {
+  record Ok<@NonNull R>(R value) implements Ethr<R> {
   }
 
-  record Fail<R>(Err err) implements Ethr<R> {
+  record Fail<@NonNull R>(Err err) implements Ethr<R> {
   }
 
-  static <R> Ethr<R> ok(R value) {
+  static <R> Ethr<@NonNull R> ok(@NonNull R value) {
     return new Ok<>(value);
   }
 
-  static <R> Ethr<R> fail(Err err) {
+  static <R> Ethr<@NonNull R> fail(Err err) {
     return new Fail<>(err);
   }
 
-  static <R> Ethr<R> fail(String message) {
+  static <R> Ethr<@NonNull R> fail(String message) {
     return new Fail<>(new Err.Message(message));
   }
 
-  static <R> Ethr<R> fail(RuntimeException ex) {
+  static <R> Ethr<@NonNull R> fail(RuntimeException ex) {
     return new Fail<>(new Err.Failure(ex));
   }
 
@@ -53,14 +55,14 @@ public sealed interface Ethr<R> {
     };
   }
 
-  default <U> Ethr<U> map(Fn<R, U> f) {
+  default <U> Ethr<@NonNull U> map(Fn<R, @NonNull U> f) {
     return switch (this) {
       case Ok<R>(var v) -> ok(f.apply(v));
       case Fail<R>(var e) -> Ethr.<U>fail(e);
     };
   }
 
-  default <U> Ethr<U> flatMap(Fn<R, Ethr<U>> f) {
+  default <U> Ethr<@NonNull U> flatMap(Fn<R, Ethr<@NonNull U>> f) {
     return switch (this) {
       case Ok<R>(var v) -> f.apply(v);
       case Fail<R>(var e) -> Ethr.<U>fail(e);
@@ -96,7 +98,7 @@ public sealed interface Ethr<R> {
     };
   }
 
-  default <U> U fold(Fn<Err, U> onFail, Fn<R, U> onOk) {
+  default <U> U fold(Fn<Err, @NonNull U> onFail, Fn<R, @NonNull U> onOk) {
     return switch (this) {
       case Ok<R>(var v) -> onOk.apply(v);
       case Fail<R>(var e) -> onFail.apply(e);

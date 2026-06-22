@@ -1,14 +1,14 @@
 package jelsos.lib.math.newtype;
 
-import java.util.Optional;
+import jelsos.lib.Opt;
 
 public final class NatInt extends NewInt {
 
-  public static Optional<NatInt> of(int n) {
+  public static Opt<NatInt> of(int n) {
     return of(n, NatInt::isNat, NatInt::new);
   }
 
-  public static Optional<NatInt> ofNullable(Integer n) {
+  public static Opt<NatInt> ofNullable(Integer n) {
     return ofNullable(n, NatInt::isNat, NatInt::new);
   }
 

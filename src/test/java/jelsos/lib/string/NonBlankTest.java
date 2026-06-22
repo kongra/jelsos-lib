@@ -4,6 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
+import jelsos.lib.Opt;
+
 class NonBlankTest {
 
   @Test
@@ -17,16 +19,16 @@ class NonBlankTest {
 
   @Test
   void testOptOf() {
-    assertThat(NonBlank.of(StrTest.EMPTY)).isEmpty();
-    assertThat(NonBlank.of(StrTest.BLANK)).isEmpty();
+    assertThat(NonBlank.of(StrTest.EMPTY)).isEqualTo(Opt.empty());
+    assertThat(NonBlank.of(StrTest.BLANK)).isEqualTo(Opt.empty());
 
-    assertThat(NonBlank.of(StrTest.NO_WHITESPACE))
-        .isNotEmpty()
-        .hasValueSatisfying(s -> StrTest.NO_WHITESPACE.equals(s.value()));
+    assertThat(NonBlank.of(StrTest.NO_WHITESPACE)).isNotEqualTo(Opt.empty());
+    assertThat(NonBlank.of(StrTest.NO_WHITESPACE).get().value())
+        .isEqualTo(StrTest.NO_WHITESPACE);
 
-    assertThat(NonBlank.of(StrTest.HAVING_WHITESPACE))
-        .isNotEmpty()
-        .hasValueSatisfying(s -> StrTest.HAVING_WHITESPACE.equals(s.value()));
+    assertThat(NonBlank.of(StrTest.HAVING_WHITESPACE)).isNotEqualTo(Opt.empty());
+    assertThat(NonBlank.of(StrTest.HAVING_WHITESPACE).get().value())
+        .isEqualTo(StrTest.HAVING_WHITESPACE);
   }
 
   @Test

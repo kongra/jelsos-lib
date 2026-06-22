@@ -1,12 +1,11 @@
 package jelsos.lib.string;
 
-import java.util.Optional;
-
+import jelsos.lib.Opt;
 import jelsos.lib.newtype.Newtype;
 
 public final class NonBlank extends Newtype<String> {
 
-  public static Optional<NonBlank> of(String s) {
+  public static Opt<NonBlank> of(String s) {
     return of(s, NonBlank::isNonBlank, NonBlank::new);
   }
 

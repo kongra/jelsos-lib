@@ -1,10 +1,8 @@
 package jelsos.lib.math;
 
-import java.util.Optional;
-
 import org.eclipse.jdt.annotation.Nullable;
 
-import jelsos.lib.O;
+import jelsos.lib.Opt;
 import jelsos.lib.function.Supp;
 
 public enum Kleene {
@@ -19,19 +17,19 @@ public enum Kleene {
     return b == null ? UNKNOWN : fromBoolean(b.booleanValue());
   }
 
-  public static Optional<Kleene> parseString(String s) {
-    return O.nn(switch (s) {
-      case "true", "TRUE"       -> Optional.of(TRUE);
-      case "false", "FALSE"     -> Optional.of(FALSE);
-      case "unknown", "UNKNOWN" -> Optional.of(UNKNOWN);
-      default                   -> Optional.empty();
-    });
+  public static Opt<Kleene> parseString(String s) {
+    return switch (s) {
+      case "true", "TRUE" -> Opt.of(TRUE);
+      case "false", "FALSE" -> Opt.of(FALSE);
+      case "unknown", "UNKNOWN" -> Opt.of(UNKNOWN);
+      default -> Opt.empty();
+    };
   }
 
   public static Kleene not(Kleene k) {
     return switch (k) {
-      case TRUE    -> FALSE;
-      case FALSE   -> TRUE;
+      case TRUE -> FALSE;
+      case FALSE -> TRUE;
       case UNKNOWN -> UNKNOWN;
     };
   }
@@ -46,8 +44,8 @@ public enum Kleene {
 
   public static Kleene and(Kleene a, Supp<Kleene> b) {
     return switch (a) {
-      case TRUE    -> b.get();
-      case FALSE   -> FALSE;
+      case TRUE -> b.get();
+      case FALSE -> FALSE;
       case UNKNOWN -> b.get() == FALSE ? FALSE : UNKNOWN;
     };
   }
@@ -58,8 +56,8 @@ public enum Kleene {
 
   public static Kleene or(Kleene a, Supp<Kleene> b) {
     return switch (a) {
-      case TRUE    -> TRUE;
-      case FALSE   -> b.get();
+      case TRUE -> TRUE;
+      case FALSE -> b.get();
       case UNKNOWN -> b.get() == TRUE ? TRUE : UNKNOWN;
     };
   }
@@ -70,8 +68,8 @@ public enum Kleene {
 
   public static Kleene xor(Kleene a, Supp<Kleene> b) {
     return switch (a) {
-      case TRUE    -> not(b);
-      case FALSE   -> b.get();
+      case TRUE -> not(b);
+      case FALSE -> b.get();
       case UNKNOWN -> UNKNOWN;
     };
   }

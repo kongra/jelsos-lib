@@ -1,14 +1,14 @@
 package jelsos.lib.math.newtype;
 
-import java.util.Optional;
+import jelsos.lib.Opt;
 
 public final class PosLong extends NewLong {
 
-  public static Optional<PosLong> of(long n) {
+  public static Opt<PosLong> of(long n) {
     return of(n, PosLong::isPos, PosLong::new);
   }
 
-  public static Optional<PosLong> ofNullable(Long n) {
+  public static Opt<PosLong> ofNullable(Long n) {
     return ofNullable(n, PosLong::isPos, PosLong::new);
   }
 
