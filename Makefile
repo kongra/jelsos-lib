@@ -1,19 +1,19 @@
 .PHONY: clean test jar install antq cloc
 
 clean:
-	@mvn clean
+	@gradle clean
 
 test:
-	@mvn test
+	@gradle test
 
 jar:
-	@mvn package -DskipTests
+	@gradle jar
 
 install:
-	@mvn install -DskipTests
+	@gradle publishToMavenLocal
 
 antq:
-	@mvn versions:display-dependency-updates
+	@gradle dependencyUpdates
 
 cloc:
 	@cloc . --exclude-list-file=cloc.excluded

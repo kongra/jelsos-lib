@@ -1,0 +1,55 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'com.github.ben-manes.versions' version '0.54.0'
+}
+
+group = 'kongra'
+version = '1.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(26)
+    }
+}
+
+compileJava.options.release = 26
+compileTestJava.options.release = 26
+
+repositories {
+    mavenCentral()
+}
+
+def eclipseJdtAnnotationVersion = '2.4.100'
+def assertjVersion             = '3.27.7'
+def jmhVersion                 = '1.37'
+def junitJupiterVersion        = '6.1.0'
+
+dependencies {
+    api "org.eclipse.jdt:org.eclipse.jdt.annotation:${eclipseJdtAnnotationVersion}"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+    testRuntimeOnly    "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
+    testRuntimeOnly    'org.junit.platform:junit-platform-launcher'
+    testImplementation "org.assertj:assertj-core:${assertjVersion}"
+    testImplementation "org.openjdk.jmh:jmh-core:${jmhVersion}"
+    testAnnotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:${jmhVersion}"
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        from('src/main/resources/META-INF/MANIFEST.MF')
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}

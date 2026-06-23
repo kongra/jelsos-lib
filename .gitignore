@@ -2,5 +2,7 @@
 .quarkus/
 /node_modules/
 /target/
+/.gradle/
+/build/
 package-lock.json
 package.json
