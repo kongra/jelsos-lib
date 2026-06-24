@@ -123,7 +123,7 @@ interface Opt<@NonNull T> {
     }
   }
 
-  // @SuppressWarnings("null")
+
   default Stream<T> stream() {
     return switch (this) {
       case Some<T>(var v) -> O.nn(Stream.of(v));

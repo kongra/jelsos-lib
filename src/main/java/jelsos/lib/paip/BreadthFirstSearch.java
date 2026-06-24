@@ -31,7 +31,7 @@ public final class BreadthFirstSearch<T> {
 
   private Optional<T> searchImpl(Deque<Iterable<T>> carrier) {
     while (!carrier.isEmpty()) {
-      // @SuppressWarnings("null")
+      @SuppressWarnings("null")
       var iterable = carrier.pollFirst();
       for (final T element : iterable) {
         if (goal.test(element))

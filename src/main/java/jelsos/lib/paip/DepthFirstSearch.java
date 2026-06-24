@@ -32,7 +32,7 @@ public final class DepthFirstSearch<T> {
 
   private Optional<T> searchImpl(Deque<Iterator<T>> carrier) {
     while (!carrier.isEmpty()) {
-      // @SuppressWarnings("null")
+      @SuppressWarnings("null")
       var it = carrier.getFirst();
       if (!it.hasNext()) {
         // No elements in the first iterator in carrier, let's remove it.

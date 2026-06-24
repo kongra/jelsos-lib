@@ -14,7 +14,7 @@ class StopwatchTest {
     timer = Stopwatch.start();
   }
 
-  // @SuppressWarnings("null")
+  @SuppressWarnings("null")
   @Test
   void testElapsedNanosecs() {
     var t1 = timer.elapsedNanosecs();
@@ -24,7 +24,7 @@ class StopwatchTest {
     assertThat(t2).isNotNegative().isGreaterThan(t1);
   }
 
-  // @SuppressWarnings("null")
+  @SuppressWarnings("null")
   @Test
   void testElapsedMsecs() {
     var msecs = timer.elapsedMsecs();
@@ -44,7 +44,7 @@ class StopwatchTest {
     assertThat(t2).isNotNegative().isGreaterThan(t1);
   }
 
-  // @SuppressWarnings("null")
+  @SuppressWarnings("null")
   @Test
   void testElapstr() {
     var s1 = timer.elapstr();

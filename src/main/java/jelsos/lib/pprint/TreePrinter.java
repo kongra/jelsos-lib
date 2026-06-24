@@ -40,7 +40,7 @@ public final class TreePrinter<@NonNull T> {
     print(node, depth, worker);
   }
 
-  // @SuppressWarnings("null")
+
   private void impl(T node, int depth, int level, boolean isFirst,
       LinkedList<Boolean> lastChildInfos, Worker worker) {
 
@@ -55,6 +55,7 @@ public final class TreePrinter<@NonNull T> {
       var it = children.iterator();
 
       while (it.hasNext()) {
+        @SuppressWarnings("null")
         var child = it.next();
         var isLast = !it.hasNext();
 
@@ -65,8 +66,8 @@ public final class TreePrinter<@NonNull T> {
     }
   }
 
-  // @SuppressWarnings("null")
   private static String indent(LinkedList<Boolean> lastChildInfos) {
+    @SuppressWarnings("null")
     var isLast = lastChildInfos.getFirst();
     // lastChildInfos is never empty!
 
@@ -82,6 +83,7 @@ public final class TreePrinter<@NonNull T> {
     n--;
 
     while (iter.hasPrevious() && n > 1) {
+      @SuppressWarnings("null")
       var info = iter.previous();
       prefix.append(Boolean.TRUE.equals(info) ? EMPTY_INDENT : INDENT);
       n--;
