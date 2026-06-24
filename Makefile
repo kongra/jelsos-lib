@@ -1,19 +1,21 @@
 .PHONY: clean test jar install antq cloc
 
+GRADLE := $(if $(wildcard gradlew),./gradlew,gradle)
+
 clean:
-	@gradle clean
+	@$(GRADLE) clean
 
 test:
-	@gradle test
+	@$(GRADLE) test
 
 jar:
-	@gradle jar
+	@$(GRADLE) jar
 
 install:
-	@gradle publishToMavenLocal
+	@$(GRADLE) publishToMavenLocal
 
 antq:
-	@gradle dependencyUpdates
+	@$(GRADLE) dependencyUpdates
 
 cloc:
 	@cloc . --exclude-list-file=cloc.excluded
