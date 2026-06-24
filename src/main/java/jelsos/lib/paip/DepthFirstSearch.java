@@ -13,7 +13,8 @@ import jelsos.lib.function.Supp;
 public final class DepthFirstSearch<T> {
 
   @FunctionalInterface
-  public interface CarrierSupplier<T> extends Supp<Deque<Iterator<T>>> {}
+  public interface CarrierSupplier<T> extends Supp<Deque<Iterator<T>>> {
+  }
 
   public static <T> DepthFirstSearch<T> of(Adjs<T> adjs, Predicate<T> goal) {
     return new DepthFirstSearch<>(adjs, goal);
@@ -24,27 +25,27 @@ public final class DepthFirstSearch<T> {
   }
 
   public Optional<T> search(T start, CarrierSupplier<T> cs) {
-    final var carrier = cs.get();
+    var carrier = cs.get();
     carrier.addFirst(O.nn(O.nn(List.of(start)).iterator()));
     return searchImpl(carrier);
   }
 
   private Optional<T> searchImpl(Deque<Iterator<T>> carrier) {
     while (!carrier.isEmpty()) {
-      @SuppressWarnings("null")
-      final var it = carrier.getFirst();
+      // @SuppressWarnings("null")
+      var it = carrier.getFirst();
       if (!it.hasNext()) {
         // No elements in the first iterator in carrier, let's remove it.
         carrier.removeFirst();
         continue;
       }
 
-      final var element = it.next();
+      var element = it.next();
       if (goal.test(element))
         // We have a success.
         return O.nn(Optional.of(element));
 
-      final var iteratorOverChildren = adjs.apply(element).iterator();
+      var iteratorOverChildren = adjs.apply(element).iterator();
       if (iteratorOverChildren.hasNext()) {
         carrier.addFirst(iteratorOverChildren);
       }

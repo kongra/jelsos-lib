@@ -11,9 +11,10 @@ class ExTest {
 
   @Test
   void testFail() {
-    final var cause = new IOException("boom");
-    assertThatThrownBy(() -> Ex.evalUnchecked(() -> { throw cause; }))
-        .isSameAs(cause);
+    var cause = new IOException("boom");
+    assertThatThrownBy(() -> Ex.evalUnchecked(() -> {
+      throw cause;
+    })).isSameAs(cause);
   }
 
   @Test
@@ -23,21 +24,21 @@ class ExTest {
 
   @Test
   void testInfoSupplier() {
-    final var ex = Ex.info("msg", "data").get();
+    var ex = Ex.info("msg", "data").get();
     assertThat(ex.getMessage()).isEqualTo("msg");
     assertThat(ex.getData()).isEqualTo("data");
   }
 
   @Test
   void testInvalidSupplier() {
-    final var ex = Ex.invalid("bad input", 99).get();
+    var ex = Ex.invalid("bad input", 99).get();
     assertThat(ex.getMessage()).isEqualTo("bad input");
     assertThat(ex.getWhat()).isEqualTo(99);
   }
 
   @Test
   void testImpossibleSupplier() {
-    final var ex = Ex.impossible("should not happen").get();
+    var ex = Ex.impossible("should not happen").get();
     assertThat(ex.getMessage()).isEqualTo("should not happen");
   }
 

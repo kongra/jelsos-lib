@@ -11,18 +11,14 @@ import jelsos.lib.newtype.AbstractNewtype;
 
 public class NewLong extends AbstractNewtype<NewLong> {
 
-  protected static <S extends NewLong> Opt<S> of(
-      long n,
-      LongPredicate pred,
+  protected static <S extends NewLong> Opt<S> of(long n, LongPredicate pred,
       LongFn<S> constr) {
 
     return pred.test(n) ? Opt.of(constr.apply(n)) : Opt.empty();
   }
 
-  protected static <S extends NewLong> Opt<S> ofNullable(
-      @Nullable Long n,
-      LongPredicate pred,
-      LongFn<S> constr) {
+  protected static <S extends NewLong> Opt<S> ofNullable(@Nullable Long n,
+      LongPredicate pred, LongFn<S> constr) {
     return null == n ? Opt.empty() : of(n, pred, constr);
   }
 

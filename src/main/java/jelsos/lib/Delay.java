@@ -46,7 +46,7 @@ public final class Delay<T> implements Deref<T> {
   }
 
   private void realize() {
-    final var l = lock;
+    var l = lock;
     if (l != null) {
       l.lock();
       try {

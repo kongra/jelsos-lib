@@ -10,7 +10,7 @@ import jelsos.lib.function.Supp;
 
 public final class DynVar<@NonNull T> implements Deref<Opt<T>> {
 
-  @SuppressWarnings("null")
+  // @SuppressWarnings("null")
   public static <@NonNull T> DynVar<T> newInstance() {
     return of(ScopedValue.newInstance());
   }
@@ -24,11 +24,10 @@ public final class DynVar<@NonNull T> implements Deref<Opt<T>> {
   }
 
   public <E> E eval(T value, Callable<E> body) {
-    return Ex.evalUnchecked(
-        () -> ScopedValue.where(scopedValue, value).call(body::call));
+    return Ex.evalUnchecked(() -> ScopedValue.where(scopedValue, value).call(body::call));
   }
 
-  @SuppressWarnings("null")
+  // @SuppressWarnings("null")
   public T get(T defaultValue) {
     return O.nn(scopedValue.orElse(defaultValue));
   }
@@ -37,7 +36,7 @@ public final class DynVar<@NonNull T> implements Deref<Opt<T>> {
     return deref().orElseGet(defaultValueSupplier);
   }
 
-  @SuppressWarnings("null")
+  // @SuppressWarnings("null")
   @Override
   public Opt<T> deref() {
     return scopedValue.isBound() ? Opt.of(scopedValue.get()) : Opt.empty();

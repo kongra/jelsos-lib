@@ -23,19 +23,15 @@ public final class Ex {
     return () -> new ExInfo(message, data);
   }
 
-  public static Supp<ExInfo> info(
-      Supp<String> messageSupplier,
-      Object data) {
+  public static Supp<ExInfo> info(Supp<String> messageSupplier, Object data) {
     return () -> new ExInfo(messageSupplier.get(), data);
   }
 
-  public static Supp<ExInfo> info(String message,
-      Supp<Object> dataSupplier) {
+  public static Supp<ExInfo> info(String message, Supp<Object> dataSupplier) {
     return () -> new ExInfo(message, dataSupplier.get());
   }
 
-  public static Supp<ExInfo> info(
-      Supp<String> messageSupplier,
+  public static Supp<ExInfo> info(Supp<String> messageSupplier,
       Supp<Object> dataSupplier) {
     return () -> new ExInfo(messageSupplier.get(), dataSupplier.get());
   }
@@ -44,14 +40,11 @@ public final class Ex {
     return () -> new Invalid(message, what);
   }
 
-  public static Supp<Invalid> invalid(Supp<String> messageSupplier,
-      Object what) {
+  public static Supp<Invalid> invalid(Supp<String> messageSupplier, Object what) {
     return () -> new Invalid(messageSupplier.get(), what);
   }
 
-  public static Supp<Invalid> invalid(
-      String message,
-      Supp<Object> whatSupplier) {
+  public static Supp<Invalid> invalid(String message, Supp<Object> whatSupplier) {
     return () -> new Invalid(message, whatSupplier.get());
   }
 
@@ -64,8 +57,7 @@ public final class Ex {
     return () -> new Impossible(message);
   }
 
-  public static Supp<Impossible> impossible(
-      Supp<String> messageSupplier) {
+  public static Supp<Impossible> impossible(Supp<String> messageSupplier) {
     return () -> new Impossible(messageSupplier.get());
   }
 

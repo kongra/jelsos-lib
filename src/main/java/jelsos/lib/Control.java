@@ -18,13 +18,10 @@ public final class Control {
     return doRange(ascRange, STEP_1, body);
   }
 
-  public static long doRange(
-      AscRange ascRange,
-      PosLong step,
-      LongConsumer body) {
+  public static long doRange(AscRange ascRange, PosLong step, LongConsumer body) {
 
-    final var startInclusive = ascRange.value().first();
-    final var endExclusive = ascRange.value().second();
+    var startInclusive = ascRange.value().first();
+    var endExclusive = ascRange.value().second();
     return rangeAsc(startInclusive, endExclusive, step.value(), body);
   }
 
@@ -32,23 +29,16 @@ public final class Control {
     return doRange(descRange, STEP_1, body);
   }
 
-  public static long doRange(
-      DescRange descRange,
-      PosLong step,
-      LongConsumer body) {
+  public static long doRange(DescRange descRange, PosLong step, LongConsumer body) {
 
-    final var startInclusive = descRange.value().first();
-    final var endExclusive = descRange.value().second();
+    var startInclusive = descRange.value().first();
+    var endExclusive = descRange.value().second();
     return rangeDesc(startInclusive, endExclusive, step.value(), body);
   }
 
-  public static final PosLong STEP_1 = PosLong.of(1)
-      .orElseThrow(Impossible::new);
+  public static final PosLong STEP_1 = PosLong.of(1).orElseThrow(Impossible::new);
 
-  private static long rangeAsc(
-      long startInclusive,
-      long endExclusive,
-      long step,
+  private static long rangeAsc(long startInclusive, long endExclusive, long step,
       LongConsumer body) {
 
     var completedStepsCount = 0L;
@@ -59,10 +49,7 @@ public final class Control {
     return completedStepsCount;
   }
 
-  private static long rangeDesc(
-      long startInclusive,
-      long endExclusive,
-      long step,
+  private static long rangeDesc(long startInclusive, long endExclusive, long step,
       LongConsumer body) {
 
     var completedStepsCount = 0L;

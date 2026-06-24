@@ -7,7 +7,7 @@ public final class Numbers {
   }
 
   public static boolean isEffectivelyInt(double d) {
-    final var epsilon = 0.0000000000001D;
+    var epsilon = 0.0000000000001D;
     return areEqual(d, Math.rint(d), epsilon);
   }
 

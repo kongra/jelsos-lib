@@ -13,12 +13,16 @@ import org.eclipse.jdt.annotation.Nullable;
 import jelsos.lib.function.Fn;
 import jelsos.lib.function.Supp;
 
-public sealed interface Opt<@NonNull T> {
+public sealed
 
-  record Some<@NonNull T>(T value) implements Opt<T> {
+interface Opt<@NonNull T> {
+
+  record Some<@NonNull T>(T value)implements Opt<T>
+  {
   }
 
-  record None<@NonNull T>() implements Opt<T> {
+  record None<@NonNull T>()implements Opt<T>
+  {
   }
 
   None<?> NONE = new None<>();
@@ -69,12 +73,7 @@ public sealed interface Opt<@NonNull T> {
     };
   }
 
-  default T orElseThrow() {
-    return switch (this) {
-      case Some<T>(var v) -> v;
-      case None<T> _ -> throw new NoSuchElementException();
-    };
-  }
+  default T orElseThrow() {return switch(this){case Some<T>(var v)->v;case None<T>_->throw new NoSuchElementException();};}
 
   default <X extends Throwable> T orElseThrow(Supp<X> exceptionSupplier) throws X {
     return switch (this) {

@@ -30,8 +30,7 @@ public final class Threads {
     runAcquiring(s, 1, body);
   }
 
-  public static void runAcquiring(Semaphore s, int permits,
-      InterruptibleRunnable body) {
+  public static void runAcquiring(Semaphore s, int permits, InterruptibleRunnable body) {
     run(() -> s.acquire(permits));
     try {
       body.run();
@@ -40,8 +39,7 @@ public final class Threads {
     }
   }
 
-  public static <T> T evalAcquiring(Semaphore s,
-      InterruptibleSupplier<T> supplier) {
+  public static <T> T evalAcquiring(Semaphore s, InterruptibleSupplier<T> supplier) {
     return evalAcquiring(s, 1, supplier);
   }
 
@@ -64,8 +62,7 @@ public final class Threads {
     }
   }
 
-  public static <T> T evalLocking(Lock lock,
-      InterruptibleSupplier<T> supplier) {
+  public static <T> T evalLocking(Lock lock, InterruptibleSupplier<T> supplier) {
     lock.lock();
     try {
       return supplier.get();
@@ -83,7 +80,7 @@ public final class Threads {
   }
 
   public static void joinAll(Iterable<Thread> threads) {
-    for (final var thread : threads) {
+    for (var thread : threads) {
       run(thread::join);
     }
   }

@@ -5,7 +5,8 @@
       "Bash(git -C /home/kongra/Devel/hot/Java/jelsos-lib diff Makefile)",
       "Bash(git -C /home/kongra/Devel/hot/Java/jelsos-lib log --oneline -5)",
       "Bash(git -C /home/kongra/Devel/hot/Java/jelsos-lib add Makefile)",
-      "Bash(git -C /home/kongra/Devel/hot/Java/jelsos-lib commit -m ' *)"
+      "Bash(git -C /home/kongra/Devel/hot/Java/jelsos-lib commit -m ' *)",
+      "Bash(./gradlew compileTestJava)"
     ]
   }
 }

@@ -9,12 +9,16 @@ import jelsos.lib.ex.Ex;
 import jelsos.lib.function.Fn;
 import jelsos.lib.function.Supp;
 
-public sealed interface Ethr<@NonNull R> {
+public sealed
 
-  record Ok<@NonNull R>(R value) implements Ethr<R> {
+interface Ethr<@NonNull R> {
+
+  record Ok<@NonNull R>(R value)implements Ethr<R>
+  {
   }
 
-  record Fail<@NonNull R>(Err err) implements Ethr<R> {
+  record Fail<@NonNull R>(Err err)implements Ethr<R>
+  {
   }
 
   static <R> Ethr<@NonNull R> ok(@NonNull R value) {
@@ -94,9 +98,7 @@ public sealed interface Ethr<@NonNull R> {
     return switch (this) {
       case Ok<R>(var value) -> value;
       case Fail<R>(Err.Failure(var ex)) -> Ex.rethrow(ex);
-      case Fail<R>(Err.Message(var text)) -> throw new NoSuchElementException(text);
-    };
-  }
+      case Fail<R>(Err.Message(var text)) -> throw new NoSuchElementException(text);};}
 
   default <U> U fold(Fn<Err, @NonNull U> onFail, Fn<R, @NonNull U> onOk) {
     return switch (this) {

@@ -16,17 +16,15 @@ import jelsos.lib.O;
 public class BreadthFirstSearchTest {
 
   @SuppressWarnings("null")
-  public static Entry<String, Iterable<String>> en(String key,
-      String... values) {
+  public static Entry<String, Iterable<String>> en(String key, String... values) {
     return entry(key, O.nn(List.of(values)));
   }
 
   @SuppressWarnings("null")
-  public static final Map<String, Iterable<String>> tree1 = Map.ofEntries(
-      en("a", "b", "c"), en("b", "d", "e"), en("c", "f", "g"),
-      en("d", "h", "i"), en("e", "j", "k"), en("f", "l", "m"),
-      en("g", "n", "o"), en("h", "p", "q"), en("i", "r", "s"),
-      en("o", "t", "u"), en("u", "v", "w"));
+  public static final Map<String, Iterable<String>> tree1 =
+      Map.ofEntries(en("a", "b", "c"), en("b", "d", "e"), en("c", "f", "g"),
+          en("d", "h", "i"), en("e", "j", "k"), en("f", "l", "m"), en("g", "n", "o"),
+          en("h", "p", "q"), en("i", "r", "s"), en("o", "t", "u"), en("u", "v", "w"));
 
   @SuppressWarnings("null")
   public static Iterable<String> children(String s) {
@@ -49,13 +47,12 @@ public class BreadthFirstSearchTest {
   }
 
   public static Optional<String> search1(String start, String goal) {
-    return BreadthFirstSearch
-        .of(BreadthFirstSearchTest::children1, goal::equals).search(start);
+    return BreadthFirstSearch.of(BreadthFirstSearchTest::children1, goal::equals)
+        .search(start);
   }
 
   public static Optional<String> searchWithArray1(String start, String goal) {
-    return BreadthFirstSearch
-        .of(BreadthFirstSearchTest::children1, goal::equals)
+    return BreadthFirstSearch.of(BreadthFirstSearchTest::children1, goal::equals)
         .search(start, ArrayDeque::new);
   }
 

@@ -17,26 +17,19 @@ class StringsFormattingTest {
 
   @Test
   void testFormatting() throws IOException {
-    final var list1 = List.of(1, 2, 3, 4, 5, 6, 7, 8);
+    var list1 = List.of(1, 2, 3, 4, 5, 6, 7, 8);
 
     @SuppressWarnings("null")
-    final var list2 = list1
-        .stream()
-        .filter(this::isOdd)
-        .toList();
+    var list2 = list1.stream().filter(this::isOdd).toList();
 
-    final var s1 = """
+    var s1 = """
         some value without a doubt some longer text  , so just go away
         some value without a doubt that contains just, so just go away
         some value without a doubt a few random lines, so just go away
         """;
 
-    final var l1 = s1.lines()
-        .map(l -> l + " ")
-        .map(l -> l + "-")
-        .map(l -> l + "/")
-        .map(l -> l + "|")
-        .toList();
+    var l1 = s1.lines().map(l -> l + " ").map(l -> l + "-").map(l -> l + "/")
+        .map(l -> l + "|").toList();
 
     System.out.println(s1);
     System.out.println(l1);
@@ -58,14 +51,12 @@ class StringsFormattingTest {
 
       @Override
       public boolean equals(@Nullable Object obj) {
-        return this == obj ||
-            obj instanceof final Range other
-                && other.end == end;
+        return this == obj || obj instanceof final Range other && other.end == end;
       }
     }
 
-    final var r1 = new Range(1, 2);
-    final var r2 = new Range(1);
+    var r1 = new Range(1, 2);
+    var r2 = new Range(1);
 
     System.out.println(r1);
     System.out.println(r2);

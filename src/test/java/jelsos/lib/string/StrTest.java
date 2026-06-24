@@ -18,45 +18,32 @@ class StrTest {
   static final String HAVING_WHITESPACE = BLANK + NO_WHITESPACE + BLANK;
 
   @Test
-  @SuppressWarnings("null")
   void testStrip() {
     assertThat(NULL).isNull();
     assertThat(EMPTY).isEmpty();
     assertThat(BLANK).isBlank();
 
-    assertThat(NO_WHITESPACE)
-        .isNotNull()
-        .isNotBlank()
-        .isNotEmpty();
+    @SuppressWarnings("null")
+    var _ = assertThat(NO_WHITESPACE).isNotNull().isNotBlank().isNotEmpty();
 
-    assertThat(HAVING_WHITESPACE)
-        .isNotNull()
-        .isNotBlank()
-        .isNotEmpty();
+    @SuppressWarnings("null")
+    var _ = assertThat(HAVING_WHITESPACE).isNotNull().isNotBlank().isNotEmpty();
 
-    assertThat(Str.strip(NULL))
-        .isNull();
+    assertThat(Str.strip(NULL)).isNull();
 
-    assertThat(Str.strip(EMPTY))
-        .isNotNull()
-        .isEmpty();
+    @SuppressWarnings("null")
+    var _ = assertThat(Str.strip(EMPTY)).isNotNull().isEqualTo("");
 
-    assertThat(Str.strip(BLANK))
-        .isNotNull()
-        .isEmpty();
+    @SuppressWarnings("null")
+    var _ = assertThat(Str.strip(BLANK)).isNotNull().isEqualTo("");
 
-    assertThat(Str.strip(NO_WHITESPACE))
-        .isNotNull()
-        .isNotBlank()
-        .isNotEmpty()
+    @SuppressWarnings("null")
+    var _ = assertThat(Str.strip(NO_WHITESPACE)).isNotNull().isNotBlank().isNotEmpty()
         .isEqualTo(NO_WHITESPACE);
 
-    assertThat(Str.strip(HAVING_WHITESPACE))
-        .isNotNull()
-        .isNotBlank()
-        .isNotEmpty()
-        .isEqualTo(NO_WHITESPACE)
-        .isNotEqualTo(HAVING_WHITESPACE);
+    @SuppressWarnings("null")
+    var _ = assertThat(Str.strip(HAVING_WHITESPACE)).isNotNull().isNotBlank().isNotEmpty()
+        .isEqualTo(NO_WHITESPACE).isNotEqualTo(HAVING_WHITESPACE);
   }
 
 }

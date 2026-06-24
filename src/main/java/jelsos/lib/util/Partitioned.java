@@ -10,8 +10,7 @@ import jelsos.lib.math.newtype.PosInt;
 
 public final class Partitioned<T> extends AbstractList<List<T>> {
 
-  public static <T> Partitioned<T> list(List<T> list,
-      PosInt partitionSize) {
+  public static <T> Partitioned<T> list(List<T> list, PosInt partitionSize) {
     return new Partitioned<>(list, partitionSize);
   }
 
@@ -27,13 +26,12 @@ public final class Partitioned<T> extends AbstractList<List<T>> {
 
   @Override
   public List<T> get(int index) {
-    final var start = index * partitionSize;
-    final var end = Math.min(start + partitionSize, list.size());
+    var start = index * partitionSize;
+    var end = Math.min(start + partitionSize, list.size());
 
     if (start > end)
       throw new IndexOutOfBoundsException(
-          "Index %d is out of the list range 0..%d"
-              .formatted(index, size() - 1));
+          "Index %d is out of the list range 0..%d".formatted(index, size() - 1));
 
     // We don't make a defensive copy of the subList!
     return O.nn(list.subList(start, end));

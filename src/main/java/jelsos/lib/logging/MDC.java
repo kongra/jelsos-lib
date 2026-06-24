@@ -26,7 +26,7 @@ public interface MDC {
   void forEach(EntryConsumer<NonBlank, NonBlank> action);
 
   default String asString() {
-    final var buf = new StringBuilder("{");
+    var buf = new StringBuilder("{");
     forEach((key, val, isLast) -> {
       buf.append(Str.wrapInQuotes(key.value()));
       buf.append(':');

@@ -9,8 +9,7 @@ public final class DescRange extends Newtype<LongPair> {
     return of(longPair, DescRange::isValid, DescRange::new);
   }
 
-  public static Opt<DescRange> of(long startInclusive,
-      long endExclusive) {
+  public static Opt<DescRange> of(long startInclusive, long endExclusive) {
     return of(new LongPair(startInclusive, endExclusive), DescRange::isValid,
         DescRange::new);
   }

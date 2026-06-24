@@ -1,4 +1,4 @@
-.PHONY: clean test jar install antq cloc
+.PHONY: clean test jar install antq cloc format
 
 GRADLE := $(if $(wildcard gradlew),./gradlew,gradle)
 
@@ -19,3 +19,6 @@ antq:
 
 cloc:
 	@cloc . --exclude-list-file=cloc.excluded
+
+format:
+	@$(GRADLE) spotlessApply

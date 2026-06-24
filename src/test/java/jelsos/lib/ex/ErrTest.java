@@ -8,14 +8,14 @@ class ErrTest {
 
   @Test
   void testMessage() {
-    final var err = new Err.Message("something went wrong");
+    var err = new Err.Message("something went wrong");
     assertThat(err.text()).isEqualTo("something went wrong");
   }
 
   @Test
   void testFailure() {
-    final var cause = new Impossible("oops");
-    final var err = new Err.Failure(cause);
+    var cause = new Impossible("oops");
+    var err = new Err.Failure(cause);
     assertThat(err.ex()).isSameAs(cause);
   }
 

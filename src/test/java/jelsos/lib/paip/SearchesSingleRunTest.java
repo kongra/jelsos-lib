@@ -10,14 +10,12 @@ class SearchesSingleRunTest {
 
   @Test
   void testBreadthFirstSearch() {
-    assertThat(BreadthFirstSearchTest.search("a", "u"))
-        .isEqualTo(Optional.of("u"));
+    assertThat(BreadthFirstSearchTest.search("a", "u")).isEqualTo(Optional.of("u"));
   }
 
   @Test
   void testDepthFirstSearch() {
-    assertThat(DepthFirstSearchTest.search("a", "u"))
-        .isEqualTo(Optional.of("u"));
+    assertThat(DepthFirstSearchTest.search("a", "u")).isEqualTo(Optional.of("u"));
   }
 
 }

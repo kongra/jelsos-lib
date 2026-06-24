@@ -2,55 +2,61 @@ package jelsos.lib.pprint;
 
 import java.util.LinkedList;
 import java.util.function.Consumer;
-import java.util.function.Function;
+
+import org.eclipse.jdt.annotation.NonNull;
 
 import jelsos.lib.O;
 import jelsos.lib.ex.Impossible;
+import jelsos.lib.function.Fn;
 import jelsos.lib.math.newtype.NatInt;
 
-public final class TreePrinter<T> {
+public final class TreePrinter<@NonNull T> {
 
   @FunctionalInterface
-  public interface Adjs<T> extends Function<T, Iterable<T>> {}
+  public interface Adjs<@NonNull T> extends Fn<T, Iterable<T>> {
+  }
 
   @FunctionalInterface
-  public interface Repr<T> extends Function<T, String> {}
+  public interface Repr<@NonNull T> extends Fn<T, String> {
+  }
 
   @FunctionalInterface
-  public interface Worker extends Consumer<String> {}
+  public interface Worker extends Consumer<String> {
+  }
 
-  public static <T> TreePrinter<T> of(Adjs<T> adjs, Repr<T> repr) {
+  public static <T> TreePrinter<@NonNull T> of(Adjs<@NonNull T> adjs,
+      Repr<@NonNull T> repr) {
     return new TreePrinter<>(adjs, repr);
   }
 
   public void print(T node, NatInt depth, Worker worker) {
-    final var lastChildInfos = new LinkedList<Boolean>();
+    var lastChildInfos = new LinkedList<Boolean>();
     lastChildInfos.add(true);
     impl(node, depth.value(), 0, true, lastChildInfos, worker);
   }
 
   public void print(T node, Worker worker) {
-    final var depth = NatInt.of(Integer.MAX_VALUE)
-        .orElseThrow(Impossible::new);
+    var depth = NatInt.of(Integer.MAX_VALUE).orElseThrow(Impossible::new);
     print(node, depth, worker);
   }
 
+  // @SuppressWarnings("null")
   private void impl(T node, int depth, int level, boolean isFirst,
       LinkedList<Boolean> lastChildInfos, Worker worker) {
 
-    final var s = repr.apply(node);
-    final var pfx = isFirst ? EMPTY : EOL;
-    final var r = level == 0 ? pfx + s : pfx + indent(lastChildInfos) + s;
+    var s = repr.apply(node);
+    var pfx = isFirst ? EMPTY : EOL;
+    var r = level == 0 ? pfx + s : pfx + indent(lastChildInfos) + s;
 
     worker.accept(r);
 
     if (level != depth) {
-      final var children = adjs.apply(node);
-      final var it = children.iterator();
+      var children = adjs.apply(node);
+      var it = children.iterator();
 
       while (it.hasNext()) {
-        final var child = it.next();
-        final var isLast = !it.hasNext();
+        var child = it.next();
+        var isLast = !it.hasNext();
 
         lastChildInfos.addFirst(isLast);
         impl(child, depth, level + 1, false, lastChildInfos, worker);
@@ -59,23 +65,24 @@ public final class TreePrinter<T> {
     }
   }
 
+  // @SuppressWarnings("null")
   private static String indent(LinkedList<Boolean> lastChildInfos) {
-    final var isLast = lastChildInfos.getFirst();
+    var isLast = lastChildInfos.getFirst();
     // lastChildInfos is never empty!
 
-    final var suffix = Boolean.TRUE.equals(isLast) ? FOR_LAST_CHILD : FOR_CHILD;
-    final var prefix = new StringBuilder();
+    var suffix = Boolean.TRUE.equals(isLast) ? FOR_LAST_CHILD : FOR_CHILD;
+    var prefix = new StringBuilder();
 
     var n = lastChildInfos.size();
 
-    final var iter = lastChildInfos.listIterator(n);
+    var iter = lastChildInfos.listIterator(n);
 
     // We skip the last one
     iter.previous();
     n--;
 
     while (iter.hasPrevious() && n > 1) {
-      final var info = iter.previous();
+      var info = iter.previous();
       prefix.append(Boolean.TRUE.equals(info) ? EMPTY_INDENT : INDENT);
       n--;
     }

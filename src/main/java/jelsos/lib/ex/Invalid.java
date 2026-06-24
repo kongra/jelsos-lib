@@ -19,13 +19,10 @@ public final class Invalid extends RuntimeException {
     this(null, cause, what);
   }
 
-  public Invalid(
-      @Nullable String message,
-      @Nullable Throwable cause,
-      Object what) {
+  public Invalid(@Nullable String message, @Nullable Throwable cause, Object what) {
 
-    final var enableSuppression = false;
-    final var writableStackTrace = false;
+    var enableSuppression = false;
+    var writableStackTrace = false;
     super(message, cause, enableSuppression, writableStackTrace);
     this.what = what;
   }
@@ -36,8 +33,8 @@ public final class Invalid extends RuntimeException {
 
   @Override
   public String toString() {
-    return O.nn("Invalid [getWhat()=%s, super.toString()=%s]"
-        .formatted(getWhat(), super.toString()));
+    return O.nn("Invalid [getWhat()=%s, super.toString()=%s]".formatted(getWhat(),
+        super.toString()));
   }
 
 }

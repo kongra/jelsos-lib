@@ -9,8 +9,7 @@ public final class AscRange extends Newtype<LongPair> {
     return of(longPair, AscRange::isValid, AscRange::new);
   }
 
-  public static Opt<AscRange> of(long startInclusive,
-      long endExclusive) {
+  public static Opt<AscRange> of(long startInclusive, long endExclusive) {
     return of(new LongPair(startInclusive, endExclusive), AscRange::isValid,
         AscRange::new);
   }

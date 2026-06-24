@@ -16,25 +16,25 @@ public class BenchDepthFirstSearch {
 
   @Benchmark
   public static void benchaa(Blackhole blackhole) {
-    final var v = DepthFirstSearchTest.search1("a", "a");
+    var v = DepthFirstSearchTest.search1("a", "a");
     blackhole.consume(v);
   }
 
   @Benchmark
   public static void benchap(Blackhole blackhole) {
-    final var v = DepthFirstSearchTest.search1("a", "p");
+    var v = DepthFirstSearchTest.search1("a", "p");
     blackhole.consume(v);
   }
 
   @Benchmark
   public static void benchau(Blackhole blackhole) {
-    final var v = DepthFirstSearchTest.search1("a", "u");
+    var v = DepthFirstSearchTest.search1("a", "u");
     blackhole.consume(v);
   }
 
   @Benchmark
   public static void benchax(Blackhole blackhole) {
-    final var v = DepthFirstSearchTest.search1("a", "x");
+    var v = DepthFirstSearchTest.search1("a", "x");
     blackhole.consume(v);
   }
 

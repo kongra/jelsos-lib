@@ -29,7 +29,7 @@ class DynVarTest {
   void testEval() {
     assertThat(dynVar.get()).isEqualTo(Opt.empty());
 
-    final var result = dynVar.eval("value-1", () -> {
+    var result = dynVar.eval("value-1", () -> {
       assertThat(dynVar.get().orElseThrow()).isEqualTo("value-1");
 
       return dynVar.eval("value-2", () -> {

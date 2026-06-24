@@ -14,23 +14,21 @@ class StopwatchTest {
     timer = Stopwatch.start();
   }
 
-  @SuppressWarnings("null")
+  // @SuppressWarnings("null")
   @Test
   void testElapsedNanosecs() {
-    final var t1 = timer.elapsedNanosecs();
-    final var t2 = timer.elapsedNanosecs();
+    var t1 = timer.elapsedNanosecs();
+    var t2 = timer.elapsedNanosecs();
 
     assertThat(t1).isNotNegative();
-    assertThat(t2)
-        .isNotNegative()
-        .isGreaterThan(t1);
+    assertThat(t2).isNotNegative().isGreaterThan(t1);
   }
 
-  @SuppressWarnings("null")
+  // @SuppressWarnings("null")
   @Test
   void testElapsedMsecs() {
-    final var msecs = timer.elapsedMsecs();
-    final var nanos = timer.elapsedNanosecs();
+    var msecs = timer.elapsedMsecs();
+    var nanos = timer.elapsedNanosecs();
 
     assertThat(msecs).isNotNegative();
     assertThat(nanos).isNotNegative();
@@ -39,30 +37,22 @@ class StopwatchTest {
     System.out.println("msecs = " + msecs);
     System.out.println("nanos = " + nanos);
 
-    final var t1 = timer.elapsedMsecs();
-    final var t2 = timer.elapsedMsecs();
+    var t1 = timer.elapsedMsecs();
+    var t2 = timer.elapsedMsecs();
 
     assertThat(t1).isNotNegative();
-    assertThat(t2)
-        .isNotNegative()
-        .isGreaterThan(t1);
+    assertThat(t2).isNotNegative().isGreaterThan(t1);
   }
 
-  @SuppressWarnings("null")
+  // @SuppressWarnings("null")
   @Test
   void testElapstr() {
-    final var s1 = timer.elapstr();
-    final var s2 = timer.toString();
+    var s1 = timer.elapstr();
+    var s2 = timer.toString();
 
-    assertThat(s1)
-        .isNotNull()
-        .isNotEmpty()
-        .isNotBlank();
+    assertThat(s1).isNotNull().isNotEmpty().isNotBlank();
 
-    assertThat(s2)
-        .isNotNull()
-        .isNotEmpty()
-        .isNotBlank();
+    assertThat(s2).isNotNull().isNotEmpty().isNotBlank();
 
     assertThat(s1).isNotEqualTo(s2);
 

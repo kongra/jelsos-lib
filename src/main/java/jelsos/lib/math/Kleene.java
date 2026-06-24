@@ -17,14 +17,8 @@ public enum Kleene {
     return b == null ? UNKNOWN : fromBoolean(b.booleanValue());
   }
 
-  public static Opt<Kleene> parseString(String s) {
-    return switch (s) {
-      case "true", "TRUE" -> Opt.of(TRUE);
-      case "false", "FALSE" -> Opt.of(FALSE);
-      case "unknown", "UNKNOWN" -> Opt.of(UNKNOWN);
-      default -> Opt.empty();
-    };
-  }
+  public static Opt<Kleene> parseString(
+      String s) {return switch(s){case"true","TRUE"->Opt.of(TRUE);case"false","FALSE"->Opt.of(FALSE);case"unknown","UNKNOWN"->Opt.of(UNKNOWN);default->Opt.empty();};}
 
   public static Kleene not(Kleene k) {
     return switch (k) {

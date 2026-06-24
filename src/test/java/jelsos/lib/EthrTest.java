@@ -15,7 +15,7 @@ class EthrTest {
 
   @Test
   void testOkConstruction() {
-    final var ethr = Ethr.ok("hello");
+    var ethr = Ethr.ok("hello");
     assertThat(ethr.isOk()).isTrue();
     assertThat(ethr.isFail()).isFalse();
     assertThat(ethr.value()).isEqualTo("hello");
@@ -23,7 +23,7 @@ class EthrTest {
 
   @Test
   void testFailWithMessage() {
-    final var ethr = Ethr.fail("something went wrong");
+    var ethr = Ethr.fail("something went wrong");
     assertThat(ethr.isFail()).isTrue();
     assertThat(ethr.isOk()).isFalse();
     assertThat(ethr.err()).isEqualTo(new Err.Message("something went wrong"));
@@ -31,8 +31,8 @@ class EthrTest {
 
   @Test
   void testFailWithException() {
-    final var cause = new Impossible("oops");
-    final var ethr = Ethr.fail(cause);
+    var cause = new Impossible("oops");
+    var ethr = Ethr.fail(cause);
     assertThat(ethr.isFail()).isTrue();
     assertThat(ethr.err()).isEqualTo(new Err.Failure(cause));
   }
@@ -63,14 +63,14 @@ class EthrTest {
 
   @Test
   void testMapErr() {
-    final Ethr<Integer> result = Ethr.<Integer>fail("original")
-        .mapErr(_ -> new Err.Message("wrapped"));
+    final Ethr<Integer> result =
+        Ethr.<Integer>fail("original").mapErr(_ -> new Err.Message("wrapped"));
     assertThat(result.err()).isEqualTo(new Err.Message("wrapped"));
   }
 
   @Test
   void testMapErrIgnoredOnOk() {
-    final var result = Ethr.ok(42).mapErr(_ -> new Err.Message("ignored"));
+    var result = Ethr.ok(42).mapErr(_ -> new Err.Message("ignored"));
     assertThat(result.value()).isEqualTo(42);
   }
 
@@ -91,16 +91,15 @@ class EthrTest {
 
   @Test
   void testOrElseThrowFailureRethrows() {
-    final var cause = new Impossible("oops");
-    final var ethr = Ethr.fail(cause);
+    var cause = new Impossible("oops");
+    var ethr = Ethr.fail(cause);
     assertThatThrownBy(ethr::orElseThrow).isSameAs(cause);
   }
 
   @Test
   void testOrElseThrowMessageThrowsNoSuchElement() {
     final Ethr<Void> ethr = Ethr.fail("bad");
-    assertThatExceptionOfType(NoSuchElementException.class)
-        .isThrownBy(ethr::orElseThrow)
+    assertThatExceptionOfType(NoSuchElementException.class).isThrownBy(ethr::orElseThrow)
         .withMessage("bad");
   }
 

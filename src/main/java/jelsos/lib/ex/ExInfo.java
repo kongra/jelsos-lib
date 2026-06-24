@@ -30,8 +30,8 @@ public final class ExInfo extends RuntimeException {
 
   @Override
   public String toString() {
-    return O.nn("ExInfo [getData()=%s, super.toString()=%s]"
-        .formatted(getData(), super.toString()));
+    return O.nn("ExInfo [getData()=%s, super.toString()=%s]".formatted(getData(),
+        super.toString()));
   }
 
 }

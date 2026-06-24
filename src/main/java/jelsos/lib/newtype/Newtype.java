@@ -10,10 +10,8 @@ import jelsos.lib.function.Fn;
 
 public class Newtype<@NonNull T> extends AbstractNewtype<Newtype<T>> {
 
-  protected static <T, S extends Newtype<@NonNull T>> Opt<S> of(
-      @NonNull T t,
-      Predicate<T> pred,
-      Fn<@NonNull T, S> constr) {
+  protected static <T, S extends Newtype<@NonNull T>> Opt<S> of(@NonNull T t,
+      Predicate<T> pred, Fn<@NonNull T, S> constr) {
 
     return pred.test(t) ? Opt.of(constr.apply(t)) : Opt.empty();
   }

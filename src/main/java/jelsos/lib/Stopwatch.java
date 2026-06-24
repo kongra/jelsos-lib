@@ -17,7 +17,7 @@ public final class Stopwatch {
   }
 
   public String elapstr() {
-    final var digits = 2;
+    var digits = 2;
     return HumanReadable.nanosecs(elapsedNanosecs(), digits);
   }
 

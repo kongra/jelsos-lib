@@ -1,0 +1,10 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "makefile.configureOnOpen": false,
+    "java.format.settings.url": "eclipse-formatter.xml",
+    "files.trimTrailingWhitespace": true,
+    "[java]": {
+        "editor.formatOnSave": true
+    }
+}

@@ -52,8 +52,7 @@ class KleeneTest {
 
     assertThat(Kleene.UNKNOWN.and(() -> Kleene.TRUE)).isEqualTo(Kleene.UNKNOWN);
     assertThat(Kleene.UNKNOWN.and(() -> Kleene.FALSE)).isEqualTo(Kleene.FALSE);
-    assertThat(Kleene.UNKNOWN.and(() -> Kleene.UNKNOWN))
-        .isEqualTo(Kleene.UNKNOWN);
+    assertThat(Kleene.UNKNOWN.and(() -> Kleene.UNKNOWN)).isEqualTo(Kleene.UNKNOWN);
   }
 
   @Test
@@ -68,8 +67,7 @@ class KleeneTest {
 
     assertThat(Kleene.UNKNOWN.or(() -> Kleene.TRUE)).isEqualTo(Kleene.TRUE);
     assertThat(Kleene.UNKNOWN.or(() -> Kleene.FALSE)).isEqualTo(Kleene.UNKNOWN);
-    assertThat(Kleene.UNKNOWN.or(() -> Kleene.UNKNOWN))
-        .isEqualTo(Kleene.UNKNOWN);
+    assertThat(Kleene.UNKNOWN.or(() -> Kleene.UNKNOWN)).isEqualTo(Kleene.UNKNOWN);
   }
 
   @Test
@@ -80,14 +78,11 @@ class KleeneTest {
 
     assertThat(Kleene.FALSE.xor(() -> Kleene.TRUE)).isEqualTo(Kleene.TRUE);
     assertThat(Kleene.FALSE.xor(() -> Kleene.FALSE)).isEqualTo(Kleene.FALSE);
-    assertThat(Kleene.FALSE.xor(() -> Kleene.UNKNOWN))
-        .isEqualTo(Kleene.UNKNOWN);
+    assertThat(Kleene.FALSE.xor(() -> Kleene.UNKNOWN)).isEqualTo(Kleene.UNKNOWN);
 
     assertThat(Kleene.UNKNOWN.xor(() -> Kleene.TRUE)).isEqualTo(Kleene.UNKNOWN);
-    assertThat(Kleene.UNKNOWN.xor(() -> Kleene.FALSE))
-        .isEqualTo(Kleene.UNKNOWN);
-    assertThat(Kleene.UNKNOWN.xor(() -> Kleene.UNKNOWN))
-        .isEqualTo(Kleene.UNKNOWN);
+    assertThat(Kleene.UNKNOWN.xor(() -> Kleene.FALSE)).isEqualTo(Kleene.UNKNOWN);
+    assertThat(Kleene.UNKNOWN.xor(() -> Kleene.UNKNOWN)).isEqualTo(Kleene.UNKNOWN);
   }
 
 }
