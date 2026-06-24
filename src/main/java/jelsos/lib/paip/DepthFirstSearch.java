@@ -4,33 +4,34 @@ import java.util.Deque;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 import java.util.function.Predicate;
-
+import org.eclipse.jdt.annotation.NonNull;
 import jelsos.lib.O;
+import jelsos.lib.Opt;
 import jelsos.lib.function.Supp;
 
-public final class DepthFirstSearch<T> {
+public final class DepthFirstSearch<@NonNull T> {
 
   @FunctionalInterface
-  public interface CarrierSupplier<T> extends Supp<Deque<Iterator<T>>> {
+  public interface CarrierSupplier<@NonNull T> extends Supp<Deque<Iterator<@NonNull T>>> {
   }
 
-  public static <T> DepthFirstSearch<T> of(Adjs<T> adjs, Predicate<T> goal) {
+  public static <T> DepthFirstSearch<@NonNull T> of(Adjs<@NonNull T> adjs,
+      Predicate<@NonNull T> goal) {
     return new DepthFirstSearch<>(adjs, goal);
   }
 
-  public Optional<T> search(T start) {
+  public Opt<T> search(T start) {
     return search(start, LinkedList::new);
   }
 
-  public Optional<T> search(T start, CarrierSupplier<T> cs) {
+  public Opt<T> search(T start, CarrierSupplier<T> cs) {
     var carrier = cs.get();
     carrier.addFirst(O.nn(O.nn(List.of(start)).iterator()));
     return searchImpl(carrier);
   }
 
-  private Optional<T> searchImpl(Deque<Iterator<T>> carrier) {
+  private Opt<T> searchImpl(Deque<Iterator<T>> carrier) {
     while (!carrier.isEmpty()) {
       @SuppressWarnings("null")
       var it = carrier.getFirst();
@@ -40,10 +41,11 @@ public final class DepthFirstSearch<T> {
         continue;
       }
 
-      var element = it.next();
+      @SuppressWarnings("null")
+      var element = O.nn(it.next());
       if (goal.test(element))
         // We have a success.
-        return O.nn(Optional.of(element));
+        return Opt.of(element);
 
       var iteratorOverChildren = adjs.apply(element).iterator();
       if (iteratorOverChildren.hasNext()) {
@@ -52,7 +54,7 @@ public final class DepthFirstSearch<T> {
     }
 
     // No more iterables in the carrier - we didn't succeed.
-    return O.nn(Optional.empty());
+    return Opt.empty();
   }
 
   private final Adjs<T> adjs;
