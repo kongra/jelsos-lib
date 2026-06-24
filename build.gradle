@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
+    id 'eclipse'
     id 'com.github.ben-manes.versions' version '0.54.0'
     id 'com.diffplug.spotless' version '7.0.4'
 }
@@ -57,6 +58,33 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+        }
+    }
+}
+
+eclipse {
+    classpath {
+        defaultOutputDir = file('build/classes/java/main')
+        file {
+            whenMerged { cp ->
+                cp.entries.each {
+                    if (it instanceof org.gradle.plugins.ide.eclipse.model.SourceFolder) {
+                        if (it.output?.startsWith('bin/')) {
+                            it.output = it.output
+                                .replace('bin/main', 'build/classes/java/main')
+                                .replace('bin/test', 'build/classes/java/test')
+                                .replace('bin/default', 'build/classes/java/main')
+                        }
+                        if (it.path.contains('annotationProcessor')) {
+                            it.entryAttributes['ignore_optional_problems'] = 'true'
+                        }
+                    } else if (it instanceof org.gradle.plugins.ide.eclipse.model.Output) {
+                        if (it.path?.startsWith('bin/')) {
+                            it.path = 'build/classes/java/main'
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-.PHONY: clean test jar install antq cloc format
+.PHONY: clean test jar install antq cloc format eclipse
 
 GRADLE := $(if $(wildcard gradlew),./gradlew,gradle)
 
@@ -22,3 +22,6 @@ cloc:
 
 format:
 	@$(GRADLE) spotlessApply
+
+eclipse:
+	@$(GRADLE) eclipse

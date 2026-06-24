@@ -1,32 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="build/resources/test" path="src/test/resources">
-		<attributes>
-			<attribute name="test" value="true"/>
-			<attribute name="optional" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="resource" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" output="build/classes/java/test" path="src/test/java">
-		<attributes>
-			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" output="build/resources/main" path="src/main/resources">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="resource" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" output="build/classes/java/main" path="src/main/java">
-		<attributes>
-			<attribute name="gradle.buildServer" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" output="build/classes/java/test" path="build/generated/sources/annotationProcessor/java/test">
+	<classpathentry output="build/classes/java/test" kind="src" path="build/generated/sources/annotationProcessor/java/test">
 		<attributes>
 			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
@@ -34,142 +8,122 @@
 			<attribute name="ignore_optional_problems" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" output="build/classes/java/main" path="build/generated/sources/annotationProcessor/java/main">
+	<classpathentry output="build/classes/java/main" kind="src" path="build/generated/sources/annotationProcessor/java/main">
 		<attributes>
 			<attribute name="optional" value="true"/>
 			<attribute name="gradle.buildServer" value="true"/>
 			<attribute name="ignore_optional_problems" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-26">
+	<classpathentry kind="output" path="build/classes/java/main"/>
+	<classpathentry output="build/classes/java/main" kind="src" path="src/main/java">
 		<attributes>
-			<attribute name="gradle.buildServer" value="true"/>
+			<attribute name="gradle_scope" value="main"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.eclipse.jdt/org.eclipse.jdt.annotation/2.4.100/91d99477b4827eee02765c6d59e48282ea96cd21/org.eclipse.jdt.annotation-2.4.100.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.eclipse.jdt/org.eclipse.jdt.annotation/2.4.100/637840b2ac96b688b070f97b60bc61a276105b16/org.eclipse.jdt.annotation-2.4.100-sources.jar">
+	<classpathentry output="build/classes/java/main" kind="src" path="src/main/resources">
 		<attributes>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.eclipse.jdt"/>
-			<attribute name="artifactId" value="org.eclipse.jdt.annotation"/>
-			<attribute name="version" value="2.4.100"/>
+			<attribute name="gradle_scope" value="main"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/b9d2a0ec37497caeca27a8498e8c821096b68c45/jmh-core-1.37-sources.jar">
+	<classpathentry output="build/classes/java/test" kind="src" path="src/test/java">
 		<attributes>
+			<attribute name="gradle_scope" value="test"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.openjdk.jmh"/>
-			<attribute name="artifactId" value="jmh-core"/>
-			<attribute name="version" value="1.37"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/6.1.0/5376d10370f32af4f3b1b7a378906ee58dcdacb3/junit-jupiter-api-6.1.0.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/6.1.0/320050e92af8aa3d42bd9c701949e809ef82457b/junit-jupiter-api-6.1.0-sources.jar">
+	<classpathentry output="build/classes/java/test" kind="src" path="src/test/resources">
 		<attributes>
+			<attribute name="gradle_scope" value="test"/>
+			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.junit.jupiter"/>
-			<attribute name="artifactId" value="junit-jupiter-api"/>
-			<attribute name="version" value="6.1.0"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.jspecify/jspecify/1.0.0/7425a601c1c7ec76645a78d22b8c6a627edee507/jspecify-1.0.0.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.jspecify/jspecify/1.0.0/f1a67bbcf2f9f282baf3821046563983f16ca9b2/jspecify-1.0.0-sources.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-26/"/>
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.eclipse.jdt/org.eclipse.jdt.annotation/2.4.100/637840b2ac96b688b070f97b60bc61a276105b16/org.eclipse.jdt.annotation-2.4.100-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.eclipse.jdt/org.eclipse.jdt.annotation/2.4.100/91d99477b4827eee02765c6d59e48282ea96cd21/org.eclipse.jdt.annotation-2.4.100.jar">
 		<attributes>
-			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.jspecify"/>
-			<attribute name="artifactId" value="jspecify"/>
-			<attribute name="version" value="1.0.0"/>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.4/4fdac2fbe92dfad86aa6e9301736f6b4342a3f5c/jopt-simple-5.0.4.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.4/950831646d014c9162999019a3cb17d5fc01ac0d/jopt-simple-5.0.4-sources.jar">
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/6.1.0/a9c293559d0f72ed2ef24535a053c465bbbd2a39/junit-platform-commons-6.1.0-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/6.1.0/3bb0447338b81f4396648c406d3e1c22f65f689/junit-platform-commons-6.1.0.jar">
 		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="net.sf.jopt-simple"/>
-			<attribute name="artifactId" value="jopt-simple"/>
-			<attribute name="version" value="5.0.4"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/6.1.0/82414ee1a0308d2f096c37d317b93b66c13dbb9a/junit-jupiter-engine-6.1.0.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/6.1.0/777a5b77c466c14b2b768f6b5b71ab02ee847cd5/junit-jupiter-engine-6.1.0-sources.jar">
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/6.1.0/320050e92af8aa3d42bd9c701949e809ef82457b/junit-jupiter-api-6.1.0-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/6.1.0/5376d10370f32af4f3b1b7a378906ee58dcdacb3/junit-jupiter-api-6.1.0.jar">
 		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.junit.jupiter"/>
-			<attribute name="artifactId" value="junit-jupiter-engine"/>
-			<attribute name="version" value="6.1.0"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/3.27.7/2f4f64f054c9d618d4b1d89e7611559f5e2cfff7/assertj-core-3.27.7.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/3.27.7/b015035532daebce8e3bac651fc14f883c03b770/assertj-core-3.27.7-sources.jar">
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/3.27.7/b015035532daebce8e3bac651fc14f883c03b770/assertj-core-3.27.7-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.assertj/assertj-core/3.27.7/2f4f64f054c9d618d4b1d89e7611559f5e2cfff7/assertj-core-3.27.7.jar">
 		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.assertj"/>
-			<attribute name="artifactId" value="assertj-core"/>
-			<attribute name="version" value="3.27.7"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-launcher/6.1.0/78124de837a3e0b9e4e32a2c80ba47117f7f8c60/junit-platform-launcher-6.1.0.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-launcher/6.1.0/ae8bc4d7fe7c18f8dbbc726b2747c701eccc9cfd/junit-platform-launcher-6.1.0-sources.jar">
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/b9d2a0ec37497caeca27a8498e8c821096b68c45/jmh-core-1.37-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.openjdk.jmh/jmh-core/1.37/896f27e49105b35ea1964319c83d12082e7a79ef/jmh-core-1.37.jar">
 		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.junit.platform"/>
-			<attribute name="artifactId" value="junit-platform-launcher"/>
-			<attribute name="version" value="6.1.0"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.3.0/152ea56b3a72f655d4fd677fc0ef2596c3dd5e6e/opentest4j-1.3.0.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.3.0/afb8ff23cffb021c56f333953aebfe6e8818568e/opentest4j-1.3.0-sources.jar">
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.3.0/afb8ff23cffb021c56f333953aebfe6e8818568e/opentest4j-1.3.0-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.3.0/152ea56b3a72f655d4fd677fc0ef2596c3dd5e6e/opentest4j-1.3.0.jar">
 		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.opentest4j"/>
-			<attribute name="artifactId" value="opentest4j"/>
-			<attribute name="version" value="1.3.0"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/6.1.0/754271e8493a0be2838f3500b30971969b8603d0/junit-platform-engine-6.1.0.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/6.1.0/1d88b1100f8afc5899f85cbdbeeed109d07d55ea/junit-platform-engine-6.1.0-sources.jar">
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.1.2/e0787a997746ac32639e0bf3cb27af8dce8a3428/apiguardian-api-1.1.2-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.1.2/a231e0d844d2721b0fa1b238006d15c6ded6842a/apiguardian-api-1.1.2.jar">
 		<attributes>
+			<attribute name="gradle_used_by_scope" value=""/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.junit.platform"/>
-			<attribute name="artifactId" value="junit-platform-engine"/>
-			<attribute name="version" value="6.1.0"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.6.1/e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf/commons-math3-3.6.1.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.6.1/8fab23986ea8886af34818daf32a718e81dc98ba/commons-math3-3.6.1-sources.jar">
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.jspecify/jspecify/1.0.0/f1a67bbcf2f9f282baf3821046563983f16ca9b2/jspecify-1.0.0-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.jspecify/jspecify/1.0.0/7425a601c1c7ec76645a78d22b8c6a627edee507/jspecify-1.0.0.jar">
 		<attributes>
+			<attribute name="gradle_used_by_scope" value=""/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.apache.commons"/>
-			<attribute name="artifactId" value="commons-math3"/>
-			<attribute name="version" value="3.6.1"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.18.3/c35b2e4bf0e22e4d492936d46506bb2e6d8fafc8/byte-buddy-1.18.3.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.18.3/dc2392a351fdcd3c90299b6d8b721b26828e0f09/byte-buddy-1.18.3-sources.jar">
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.18.3/dc2392a351fdcd3c90299b6d8b721b26828e0f09/byte-buddy-1.18.3-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy/1.18.3/c35b2e4bf0e22e4d492936d46506bb2e6d8fafc8/byte-buddy-1.18.3.jar">
 		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="net.bytebuddy"/>
-			<attribute name="artifactId" value="byte-buddy"/>
-			<attribute name="version" value="1.18.3"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/6.1.0/3bb0447338b81f4396648c406d3e1c22f65f689/junit-platform-commons-6.1.0.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/6.1.0/a9c293559d0f72ed2ef24535a053c465bbbd2a39/junit-platform-commons-6.1.0-sources.jar">
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.4/950831646d014c9162999019a3cb17d5fc01ac0d/jopt-simple-5.0.4-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.4/4fdac2fbe92dfad86aa6e9301736f6b4342a3f5c/jopt-simple-5.0.4.jar">
 		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.junit.platform"/>
-			<attribute name="artifactId" value="junit-platform-commons"/>
-			<attribute name="version" value="6.1.0"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.1.2/a231e0d844d2721b0fa1b238006d15c6ded6842a/apiguardian-api-1.1.2.jar" sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.1.2/e0787a997746ac32639e0bf3cb27af8dce8a3428/apiguardian-api-1.1.2-sources.jar">
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.6.1/8fab23986ea8886af34818daf32a718e81dc98ba/commons-math3-3.6.1-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.6.1/e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf/commons-math3-3.6.1.jar">
 		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
 			<attribute name="test" value="true"/>
-			<attribute name="gradle.buildServer" value="true"/>
-			<attribute name="groupId" value="org.apiguardian"/>
-			<attribute name="artifactId" value="apiguardian-api"/>
-			<attribute name="version" value="1.1.2"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="output" path="target/classes"/>
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-launcher/6.1.0/ae8bc4d7fe7c18f8dbbc726b2747c701eccc9cfd/junit-platform-launcher-6.1.0-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-launcher/6.1.0/78124de837a3e0b9e4e32a2c80ba47117f7f8c60/junit-platform-launcher-6.1.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/6.1.0/1d88b1100f8afc5899f85cbdbeeed109d07d55ea/junit-platform-engine-6.1.0-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/6.1.0/754271e8493a0be2838f3500b30971969b8603d0/junit-platform-engine-6.1.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/6.1.0/777a5b77c466c14b2b768f6b5b71ab02ee847cd5/junit-jupiter-engine-6.1.0-sources.jar" kind="lib" path="/home/kongra/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/6.1.0/82414ee1a0308d2f096c37d317b93b66c13dbb9a/junit-jupiter-engine-6.1.0.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="test"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
 </classpath>
